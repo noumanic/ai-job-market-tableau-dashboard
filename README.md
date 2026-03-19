@@ -13,7 +13,7 @@ Interactive Tableau dashboard built on **147,348 real salary submissions** from 
 | Resource | URL |
 |----------|-----|
 | Tableau Public Dashboard | *(link after publish — Week 7)* |
-| Project Repository | https://github.com/noumanic/ai-job-market-tableau-dashboard |
+| Project Repository | https://github.com/noumanic/ai-job-market-analytics |
 | Dataset — GitHub (source) | https://github.com/foorilla/ai-jobs-net-salaries |
 | Dataset — Kaggle (official aijobs account) | https://www.kaggle.com/datasets/aijobs/global-salaries-in-ai-ml-data-science |
 | Live Job Platform | https://aijobs.net |
