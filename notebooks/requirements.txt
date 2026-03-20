@@ -1,0 +1,9 @@
+# AI Job Market Intelligence — Jupyter Notebook Requirements
+# CS3012 Data Visualization · Group 8 · FAST-NUCES Islamabad · Spring 2026
+
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.12
+ipykernel>=6.0
+jupyter>=1.0
