@@ -1,0 +1,28 @@
+metric,value
+total_records,147348
+median_salary,147000
+mean_salary,156237
+min_salary,37974
+max_salary,385000
+skewness,0.682
+entry_level_avg,102743
+mid_level_avg,140382
+senior_avg,170351
+executive_avg,195934
+ex_en_ratio,1.907
+remote_pct_2022,53.5
+remote_pct_2025,20.3
+onsite_pct_2025,79.6
+us_share_pct,90.4
+us_avg_salary,161380
+row_avg_salary,108024
+ai_core_avg,171008
+data_tech_avg,150685
+top_role,ML Engineer / MLOps
+top_role_avg,194302
+salary_2022_avg,138187
+salary_2024_avg,158107
+salary_growth_22_24,14.4
+unique_countries,87
+unique_role_groups,15
+years_covered,"2022, 2023, 2024, 2025"

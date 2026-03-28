@@ -1,0 +1,7 @@
+region,count,mean,median,std,premium_vs_lat_am_pct
+North America,139297,159976.0,150000.0,64792.0,94.2
+Asia Pacific,864,118899.0,113562.0,49719.0,44.3
+Middle East & Africa,150,100635.0,90000.0,56715.0,22.2
+Other,94,95527.0,74976.0,56304.0,16.0
+Europe,6734,88069.0,73880.0,50008.0,6.9
+Latin America,209,82382.0,74712.0,37674.0,0.0
