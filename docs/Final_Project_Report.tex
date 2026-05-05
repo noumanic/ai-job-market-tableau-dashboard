@@ -114,7 +114,7 @@
 \pagenumbering{roman}
 
 \chapter*{Abstract}
-This report provides an exhaustive analysis and visualization of the global Artificial Intelligence (AI) and Machine Learning (ML) job market from 2022 to 2025. Leveraging a real-world crowdsourced dataset of 147,348 cleaned records, the project employs a rigorous Python-based preprocessing pipeline to engineer 12 new analytical dimensions. We present 20 distinct visualizations that explore salary distributions, the "remote work collapse," geographic hiring patterns, and compensation growth across experience levels. The final deliverable is an interactive Tableau dashboard designed for executive-level decision-making.
+This report provides an exhaustive analysis and visualization of the global Artificial Intelligence (AI) and Machine Learning (ML) job market from 2022 to 2025. Leveraging a real-world crowdsourced dataset of 147,348 cleaned records, the project employs a rigorous Python-based preprocessing pipeline to engineer 12 new analytical dimensions. We present 26 distinct visualizations—including 20 exploratory figures and 6 final Tableau dashboard screenshots—that explore salary distributions, the "remote work collapse," geographic hiring patterns, and compensation growth. The final deliverable is an interactive Tableau dashboard designed for executive-level decision-making, providing a unified view of the industry's most critical trends.
 
 \tableofcontents
 \listoffigures
@@ -201,11 +201,11 @@ The pipeline is designed for scalability and reproducibility. It consists of fiv
 \end{enumerate}
 
 % ==========================================
-% CHAPTER 4: DETAILED DATA VISUALIZATION & ANALYSIS
+% CHAPTER 4: EXPLORATORY DATA ANALYSIS
 % ==========================================
-\chapter{Detailed Data Visualization \& Analysis}
+\chapter{Exploratory Data Analysis}
 
-This chapter provides a deep-dive into every visualization generated during the analysis phase. Each figure represents a critical facet of the AI job market.
+This chapter provides a deep-dive into the 20 exploratory visualizations generated during the analysis phase. Each figure represents a critical facet of the AI job market.
 
 \section{High-Level Market KPIs}
 \begin{figure}[H]
@@ -214,7 +214,7 @@ This chapter provides a deep-dive into every visualization generated during the 
     \caption{KPI Summary Cards - Global Metrics}
     \label{fig:fig09}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig09} serves as the executive summary. It highlights the global median salary (\$147k), the total record count, and the "Remote \%" which stands at 20.8\%. The EX/EN ratio of 1.91x indicates that an executive earns nearly double an entry-level professional.
+\textbf{Explanation:} Figure \ref{fig:fig09} serves as the exploratory executive summary. It highlights the global median salary (\$147k), the total record count, and the "Remote \%" which stands at 20.8\%. The EX/EN ratio of 1.91x indicates that an executive earns nearly double an entry-level professional.
 
 \section{Salary Distribution Analysis}
 \begin{figure}[H]
@@ -274,7 +274,7 @@ This chapter provides a deep-dive into every visualization generated during the 
     \caption{Overall Breakdown of Work Modes}
     \label{fig:fig05}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig05} shows that 79% of all records in the dataset are now "On-site," reflecting a massive return-to-office trend.
+\textbf{Explanation:} Figure \ref{fig:fig05} shows that 79\% of all records in the dataset are now "On-site," reflecting a massive return-to-office trend.
 
 \begin{figure}[H]
     \centering
@@ -282,7 +282,7 @@ This chapter provides a deep-dive into every visualization generated during the 
     \caption{The "Remote Work Collapse" Trend (2022--2025)}
     \label{fig:fig10}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig10} is the most telling chart. In 2022, 53% of roles were remote. By 2025, that number has dropped to 20%, effectively documenting the end of the remote-first era in AI.
+\textbf{Explanation:} Figure \ref{fig:fig10} is the most telling chart. In 2022, 53\% of roles were remote. By 2025, that number has dropped to 20\%, effectively documenting the end of the remote-first era in AI.
 
 \begin{figure}[H]
     \centering
@@ -332,7 +332,7 @@ This chapter provides a deep-dive into every visualization generated during the 
     \caption{Regional Salary Comparison (North America vs. Others)}
     \label{fig:fig11}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig11} groups countries into regions. North America dominates, with the Middle East & Africa following, largely driven by high salaries in Israel.
+\textbf{Explanation:} Figure \ref{fig:fig11} groups countries into regions. North America dominates, with the Middle East \& Africa following, largely driven by high salaries in Israel.
 
 \begin{figure}[H]
     \centering
@@ -356,7 +356,7 @@ This chapter provides a deep-dive into every visualization generated during the 
     \includegraphics[width=0.85\textwidth]{figures/15_heatmap_role_year.png}
     \caption{Heatmap of Salary Intensity by Role and Year}
     \label{fig:fig15}
-}
+\end{figure}
 \textbf{Explanation:} Figure \ref{fig:fig15} uses color intensity to show which roles are gaining the most financial traction over time. ML Engineering shows a darkening trend, indicating consistent growth.
 
 \begin{figure}[H]
@@ -365,7 +365,7 @@ This chapter provides a deep-dive into every visualization generated during the 
     \caption{Distribution of Salary Quartiles within each Role}
     \label{fig:fig17}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig17} shows that for roles like "Manager," a significant portion of the workforce is in the Q4 (Top 25%) bracket, whereas for "Data Analysts," most are in Q1.
+\textbf{Explanation:} Figure \ref{fig:fig17} shows that for roles like "Manager," a significant portion of the workforce is in the Q4 (Top 25\%) bracket, whereas for "Data Analysts," most are in Q1.
 
 \begin{figure}[H]
     \centering
@@ -376,9 +376,73 @@ This chapter provides a deep-dive into every visualization generated during the 
 \textbf{Explanation:} Figure \ref{fig:fig18} is a high-density scatter plot. Each dot is a real salary. Colors indicate whether the person is earning above (green) or below (red) their role's average for that year.
 
 % ==========================================
-% CHAPTER 5: TABLEAU IMPLEMENTATION
+% CHAPTER 5: TABLEAU DASHBOARD VISUALIZATION
 % ==========================================
-\chapter{Tableau Implementation}
+\chapter{Tableau Dashboard Visualization}
+
+This chapter presents the final, interactive dashboard elements as they appear in the production environment. These visualizations are the result of the entire preprocessing and design workflow.
+
+\section{The Unified Dashboard}
+Figure \ref{fig:tableau_dashboard} presents the full dashboard view, integrating all 7 primary sheets into a single interactive canvas.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/Tableau_Dashboard.png}
+    \caption{The Final AI Job Market Intelligence Dashboard.}
+    \label{fig:tableau_dashboard}
+\end{figure}
+\textbf{Description:} This unified view allows for cross-filtering and synchronized analysis. Users can select a region on the map to see how salary trends and role distributions update instantly.
+
+\section{Detailed Dashboard Components}
+
+\subsection{Salary Trends in Tableau}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/Salary_trend_tableau.png}
+    \caption{Tableau View: Salary Trend (Avg/Median) with Volume Bars.}
+    \label{fig:tableau_trend}
+\end{figure}
+\textbf{Analysis:} Figure \ref{fig:tableau_trend} shows the dual-axis implementation in Tableau, where the submission volume is visualized as secondary bars, providing context to the salary lines.
+
+\subsection{Compensation by Role}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/Salary_by_Role_Tableau.png}
+    \caption{Tableau View: Salary Ranking by Job Category.}
+    \label{fig:tableau_role}
+\end{figure}
+\textbf{Analysis:} The horizontal bar chart in Figure \ref{fig:tableau_role} uses color encoding to highlight the \$194k leadership of ML Engineering.
+
+\subsection{Work Mode Dynamics}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/Work_Mode_tableau.png}
+    \caption{Tableau View: The Return to Office (Donut Chart).}
+    \label{fig:tableau_work_mode}
+\end{figure}
+\textbf{Analysis:} The donut chart in Figure \ref{fig:tableau_work_mode} provides a high-level summary of the work-mode split, with "On-site" dominating at nearly 80\%.
+
+\subsection{Global Compensation Map}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/GlobalMap_Tableau.png}
+    \caption{Tableau View: Global Salary Choropleth Map.}
+    \label{fig:tableau_map}
+\end{figure}
+\textbf{Analysis:} Figure \ref{fig:tableau_map} shows the geographic concentration of high-paying roles, with North America and the Middle East highlighted as primary hubs.
+
+\subsection{Experience-Salary Progression}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/Salary_vs_Exp_tableau.png}
+    \caption{Tableau View: Salary Growth across Experience Tiers.}
+    \label{fig:tableau_exp}
+\end{figure}
+\textbf{Analysis:} Figure \ref{fig:tableau_exp} shows the clean, sorted axis for experience, ensuring the progression from Entry to Executive is intuitive for the end-user.
+
+% ==========================================
+% CHAPTER 6: TABLEAU IMPLEMENTATION DETAILS
+% ==========================================
+\chapter{Tableau Implementation Details}
 
 \section{Calculated Fields}
 \begin{itemize}
@@ -387,13 +451,13 @@ This chapter provides a deep-dive into every visualization generated during the 
 \end{itemize}
 
 \section{Dashboard Layout}
-The dashboard is arranged to guide the user from high-level KPIs at the top down to granular regional and role-based details at the bottom.
+The dashboard is arranged to guide the user from high-level KPIs at the top down to granular regional and role-based details at the bottom. The use of Navy (\#003875) as the primary brand color ensures a professional aesthetic.
 
 % ==========================================
-% CHAPTER 6: CONCLUSION
+% CHAPTER 7: CONCLUSION
 % ==========================================
 \chapter{Conclusion}
-The project successfully maps the current state of the AI job market. The data confirms a robust, high-paying industry that has rapidly moved back to on-site work while maintaining strong compensation for specialized ML roles.
+The project successfully maps the current state of the AI job market. The data confirms a robust, high-paying industry that has rapidly moved back to on-site work while maintaining strong compensation for specialized ML roles. The inclusion of the Tableau dashboard provides a powerful tool for stakeholders to navigate this evolving landscape.
 
 % ==========================================
 % APPENDICES
@@ -417,7 +481,7 @@ df = pd.read_csv("../data/raw/salaries.csv")
 df = df[df["employment_type"] == "FT"]
 df = df[df["work_year"] >= 2022]
 q01, q99 = df["salary_in_usd"].quantile([0.01, 0.99])
-df = df[(df["salary_in_usd"] >= q01) & (df["salary_in_usd"] <= q99)]
+df = df[(df["salary_in_usd"] >= lower) & (df["salary_in_usd"] <= upper)]
 df.to_csv("../data/processed/salaries_clean.csv", index=False)
 \end{lstlisting}
 
