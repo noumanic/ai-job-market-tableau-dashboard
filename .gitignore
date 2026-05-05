@@ -21,3 +21,11 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
+
+
+# Latex
+*.aux
+*.lof
+*.lot
+*.out
+*.toc
