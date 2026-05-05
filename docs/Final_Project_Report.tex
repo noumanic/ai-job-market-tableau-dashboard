@@ -1,0 +1,291 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages for layout and styling
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+% Define colors
+\definecolor{navy}{HTML}{003875}
+\definecolor{skyblue}{HTML}{378ADD}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Setup listings for Python code
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegray},
+    keywordstyle=\color{navy},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=pythonstyle}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\color{navy}AI Job Market Intelligence}
+\lhead{Group 8}
+\rfoot{Page \thepage}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=navy,
+    filecolor=magenta,      
+    urlcolor=skyblue,
+    pdftitle={AI Job Market Intelligence Report},
+}
+
+% Title Page Information
+\title{
+    \vspace{1in}
+    \Huge \textbf{\color{navy}AI Job Market Intelligence} \\
+    \Large \textit{Salaries, Roles \& Global Hiring Trends (2020--2025)} \\
+    \vspace{0.5in}
+    \large \textbf{CS3012 Fundamentals of Data Visualization} \\
+    Group 8
+    \vspace{1in}
+}
+
+\author{
+    \textbf{Muhammad Nouman Hafeez (I210416)} \\
+    \textbf{M. ASIM (I210852)} \\
+    \textbf{Sara Jabeen (I210624)} \\
+    \vspace{0.5in} \\
+    \textbf{Instructor:} Dr. Atif Mughees \\
+    \vspace{0.2in} \\
+    FAST-NUCES Islamabad \\
+    Spring 2026
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\newpage
+
+\listoffigures
+\newpage
+
+\section{Project Overview}
+This project serves as the final deliverable for the CS3012 Fundamentals of Data Visualization course. The primary objective is to analyze and visualize global AI, Machine Learning, and Data Science salary trends using real-world crowdsourced data. By leveraging a dataset of over 147,000 salary submissions, we have developed an interactive Tableau dashboard to answer critical industry questions regarding compensation, remote work dynamics, and regional hiring patterns.
+
+\subsection{Core Research Questions}
+The analysis focuses on five foundational questions:
+\begin{itemize}
+    \item Which AI/ML/Data Science roles command the highest salaries in the current market?
+    \item How does compensation scale across different career levels (Entry Level to Executive)?
+    \item What is the trajectory of remote work adoption from the post-pandemic peak in 2022 to the present?
+    \item Which geographic regions lead in AI hiring and how do regional pay scales differ?
+    \item How are salaries distributed across pay bands and quartiles within the industry?
+\end{itemize}
+
+\section{Dataset Description}
+The project utilizes the "Global Salaries in AI, ML, Data Science and Big Data" dataset, sourced from \textit{aijobs.net} and \textit{foorilla.com}. 
+
+\subsection{Source and Authenticity}
+The dataset is published under a CC0 Public Domain license and is curated by the organizations that own the platforms. Unlike synthetic datasets, this data contains genuine indicators of a real tech labor market:
+\begin{itemize}
+    \item \textbf{High Skewness:} The salary distribution is right-skewed (skewness = 1.35), typical of professional earnings.
+    \item \textbf{Geographic Concentration:} The US dominates with approximately 90\% of submissions.
+    \item \textbf{Raw Variation:} Over 400 unique job title variants reflect real-world naming conventions.
+\end{itemize}
+
+\subsection{Key Metrics}
+After preprocessing, the dataset consists of \textbf{147,348} records spanning from 2022 to 2025.
+\begin{table}[H]
+    \centering
+    \caption{Key Dataset Metrics}
+    \begin{tabular}{lc}
+        \toprule
+        Metric & Value \\
+        \midrule
+        Median Salary & \$147,000 \\
+        Mean Salary & \$156,237 \\
+        Total Records (Clean) & 147,348 \\
+        Salary Range & \$37,974 -- \$385,000 \\
+        Countries & 87 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Preprocessing Pipeline}
+A robust Python-based preprocessing pipeline was implemented to clean the raw data and engineer new features for enhanced storytelling in Tableau.
+
+\subsection{Data Cleaning (\texttt{02\_clean.py})}
+The cleaning stage focused on standardizing the population for a fair comparison:
+\begin{enumerate}
+    \item \textbf{Employment Type:} Restricted to Full-Time (FT) employees to remove noise from contract/freelance work.
+    \item \textbf{Temporal Filter:} Kept records from 2022 to 2025.
+    \item \textbf{Outlier Removal:} Removed records below the 1st percentile and above the 99th percentile (Bounds: \$37,974 to \$385,000).
+\end{enumerate}
+
+\subsection{Feature Engineering (\texttt{05\_feature\_engineering.py})}
+To add depth to the visualization, 12 new columns were derived. These include salary bands, quartiles, and comparative metrics (relative to year/role averages).
+
+\begin{lstlisting}[language=Python, caption=Excerpts from Feature Engineering Pipeline]
+# 1. SALARY BAND - Categorical grouping for distribution analysis
+bins   = [0, 60000, 100000, 150000, 200000, 260000, 385001]
+labels = ["<$60K", "$60K-$100K", "$100K-$150K", "$150K-$200K", "$200K-$260K", "$260K+"]
+df["salary_band"] = pd.cut(df["salary_in_usd"], bins=bins, labels=labels)
+
+# 2. IS_US - Comparison between US and International markets
+df["is_us"] = df["company_location"].apply(
+    lambda x: "United States" if x == "US" else "Rest of World"
+)
+
+# 3. SALARY vs YEAR AVERAGE - Contextual measure for tooltips
+year_avg = df.groupby("work_year")["salary_in_usd"].mean()
+df["year_avg_salary"] = df["work_year"].map(year_avg).round(0)
+df["salary_vs_year_avg"] = (df["salary_in_usd"] - df["year_avg_salary"]).round(0)
+\end{lstlisting}
+
+\section{Analysis and Results}
+The following sections detail the findings extracted from the data, supported by figures generated during the exploratory phase.
+
+\subsection{Salary Trends (2022--2025)}
+The market showed significant growth between 2022 and 2024, with median salaries rising by approximately 10\%. However, 2025 data suggests a stabilization of pay scales.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/03_salary_trend_dual_axis.png}
+    \caption{Salary Trend (Avg vs Median) and Submission Volume}
+    \label{fig:trend}
+\end{figure}
+
+\subsection{Remote Work Collapse}
+A striking finding is the decline of remote work. In 2022, over 53\% of roles were remote. By 2025, this figure plummeted to 20\%, indicating a strong industry shift back to on-site work.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/05_work_mode_donut.png}
+        \caption{Overall Work Mode Split}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/10_remote_trend_stacked.png}
+        \caption{Remote Trend (2022-2025)}
+    \end{subfigure}
+    \caption{Work Mode Distribution and Temporal Shifts}
+\end{figure}
+
+\subsection{Salary by Role and Experience}
+Top-paying roles include \textbf{ML Engineer / MLOps} and \textbf{AI / ML Researcher}. Experience remains the strongest predictor of salary, with Executives earning 1.91x more than Entry-Level professionals.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/04_salary_by_role.png}
+    \caption{Average Salary by Standardized Role Category}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/07_salary_vs_experience.png}
+    \caption{Salary Progression Across Career Levels}
+\end{figure}
+
+\subsection{Geographic Distribution}
+The United States remains the global hub for AI, accounting for over 90\% of submissions with an average salary of \$161,381. Other high-paying regions include Canada and portions of Europe.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/11_salary_by_region.png}
+    \caption{Regional Salary Comparison}
+\end{figure}
+
+\section{Tableau Dashboard Design}
+The final dashboard is designed for high interactivity, utilizing navy (\#003875) and sky blue (\#378ADD) to provide a premium look.
+
+\subsection{Key Features}
+\begin{itemize}
+    \item \textbf{Dual-Axis Charts:} Synchronized axes showing both volume (counts) and value (salaries).
+    \item \textbf{Highlight Actions:} Selecting a role in the bar chart filters the entire dashboard.
+    \item \textbf{Parameter Toggles:} Users can toggle between "Top 5", "Top 10", and "All" roles for cleaner analysis.
+    \item \textbf{Calculated Fields:} 12+ custom calculations used for dynamic annotations and color encoding.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/09_kpi_summary_cards.png}
+    \caption{KPI Dashboard View - High Level Metrics}
+\end{figure}
+
+\section{Conclusion}
+The AI job market has transitioned from a high-growth, remote-first environment (2022) to a more stabilized, on-site dominant market (2025). While salaries remain high compared to other tech sectors, the return-to-office trend is undeniable. For professionals, specializing in ML Engineering or Research continues to yield the highest financial returns.
+
+\section*{Appendix: Python Implementation}
+\subsection*{02\_clean.py - Data Sanitization}
+\begin{lstlisting}[language=Python]
+import pandas as pd
+
+# Load raw data
+df = pd.read_csv("../data/raw/salaries.csv")
+
+# 1. Keep Full-Time only
+df = df[df["employment_type"] == "FT"]
+
+# 2. Keep 2022 to 2025
+df = df[df["work_year"] >= 2022]
+
+# 3. Outlier removal (1st to 99th percentile)
+lower = df["salary_in_usd"].quantile(0.01)
+upper = df["salary_in_usd"].quantile(0.99)
+df = df[(df["salary_in_usd"] >= lower) & (df["salary_in_usd"] <= upper)]
+
+df.to_csv("../data/processed/salaries_clean_final.csv", index=False)
+\end{lstlisting}
+
+\subsection*{05\_feature\_engineering.py - Advanced Analytics}
+\begin{lstlisting}[language=Python]
+import pandas as pd
+import numpy as np
+
+# Load clean data
+df = pd.read_csv("../data/processed/salaries_clean_final.csv")
+
+# Region Mapping
+region_map = {
+    "US": "North America", "CA": "North America", 
+    "GB": "Europe", "DE": "Europe", "FR": "Europe",
+    # ... mapping continued ...
+}
+df["region"] = df["company_location"].map(region_map).fillna("Other")
+
+# Salary vs Role Average
+role_avg = df.groupby("title_group")["salary_in_usd"].mean()
+df["role_avg_salary"] = df["title_group"].map(role_avg).round(0)
+df["salary_vs_role_avg"] = (df["salary_in_usd"] - df["role_avg_salary"]).round(0)
+\end{lstlisting}
+
+\end{document}
