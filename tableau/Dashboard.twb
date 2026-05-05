@@ -947,13 +947,6 @@
       </datasource-dependencies>
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone-style>
-            <format attr='background-color' value='#FFFFFF' />
-            <format attr='border-color' value='#000000' />
-            <format attr='border-style' value='none' />
-            <format attr='border-width' value='0' />
-            <format attr='margin' value='0' />
-          </zone-style>
           <zone forceUpdate='true' h='8000' id='100' type-v2='text' w='100000' x='0' y='0'>
             <formatted-text>
               <run bold='true' fontalignment='1' fontcolor='#FFFFFF' fontsize='24'>AI JOB MARKET INTELLIGENCE</run>
@@ -1214,6 +1207,13 @@
               <format attr='margin' value='0' />
             </zone-style>
           </zone>
+          <zone-style>
+            <format attr='background-color' value='#FFFFFF' />
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='0' />
+          </zone-style>
         </zone>
       </zones>
       <devicelayouts>
