@@ -22,31 +22,38 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{etoolbox}
+\usepackage{tcolorbox}
 
-% Colors
-\definecolor{navy}{HTML}{003875}
-\definecolor{skyblue}{HTML}{378ADD}
+% Colors — Forest Emerald palette matching the Tableau dashboard
+\definecolor{forest}{HTML}{1B4332}
+\definecolor{emerald}{HTML}{2D6A4F}
+\definecolor{jade}{HTML}{40916C}
+\definecolor{sage}{HTML}{52B788}
+\definecolor{honey}{HTML}{D8973C}
+\definecolor{rust}{HTML}{BC4749}
+\definecolor{cream}{HTML}{FAF8F0}
+\definecolor{mint}{HTML}{E8F1ED}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 % Code Style
 \lstdefinestyle{pythonstyle}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegray},
-    keywordstyle=\color{navy},
+    keywordstyle=\color{forest},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2
 }
 \lstset{style=pythonstyle}
@@ -54,13 +61,13 @@
 % Header/Footer
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\color{navy}AI Job Market Intelligence}
+\rhead{\color{forest}AI Job Market Intelligence}
 \lhead{Group 8 | FAST-NUCES}
 \rfoot{Page \thepage}
 
 % Title Spacing
 \titleformat{\chapter}[display]
-  {\normalfont\bfseries\color{navy}}
+  {\normalfont\bfseries\color{forest}}
   {\filleft\Large\chaptertitlename\ \thechapter}
   {1ex}
   {\titlerule\vspace{1ex}\filleft\Huge}
@@ -69,10 +76,24 @@
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=navy,
-    filecolor=magenta,      
-    urlcolor=skyblue,
+    linkcolor=forest,
+    filecolor=magenta,
+    urlcolor=emerald,
     pdftitle={AI Job Market Intelligence: Final Project Report},
+}
+
+% Insight callout box — uses base tcolorbox features only (no skins lib needed)
+\newtcolorbox{insightbox}{
+  colback=cream,
+  colframe=honey,
+  boxrule=1pt,
+  arc=2pt,
+  left=8pt,right=8pt,top=4pt,bottom=4pt,
+  before skip=6pt,after skip=6pt,
+  title=\textbf{Key Insight},
+  fonttitle=\bfseries,
+  coltitle=forest,
+  colbacktitle=mint
 }
 
 % ==========================================
@@ -83,28 +104,28 @@
 \begin{titlepage}
     \centering
     \vspace*{1cm}
-    \includegraphics[width=0.4\textwidth]{pic1_foorilla_hiring.png}\\[1cm] 
-    {\Huge \textbf{\color{navy}AI Job Market Intelligence}} \\[0.5cm]
-    {\Large \textit{Salaries, Roles \& Global Hiring Trends (2020--2025)}} \\[1.5cm]
-    
+    \includegraphics[width=0.4\textwidth]{pic1_foorilla_hiring.png}\\[1cm]
+    {\Huge \textbf{\color{forest}AI Job Market Intelligence}} \\[0.5cm]
+    {\Large \textit{Salaries, Roles \& Global Hiring Trends (2022--2025)}} \\[1.5cm]
+
     {\large \textbf{CS3012: Fundamentals of Data Visualization}} \\[0.2cm]
     {\large Final Project Report} \\[2cm]
-    
+
     \textbf{Prepared by Group 8:} \\[0.5cm]
     \begin{table}[H]
         \centering
         \begin{tabular}{ll}
             \textbf{Muhammad Nouman Hafeez} & \textbf{I210416} \\
-            \textbf{M. Asim} & \textbf{I210852} \\
+            \textbf{Muhammad Asim} & \textbf{I210852} \\
             \textbf{Sara Jabeen} & \textbf{I210624} \\
         \end{tabular}
     \end{table}
-    
+
     \vfill
-    
+
     \textbf{Instructor:} \\[0.2cm]
     {\large Dr. Atif Mughees} \\[1cm]
-    
+
     \textbf{Department of Computer Science} \\
     \textbf{FAST-NUCES Islamabad} \\
     \textbf{Spring 2026}
@@ -116,7 +137,7 @@
 \pagenumbering{roman}
 
 \chapter*{Abstract}
-This report provides an exhaustive analysis and visualization of the global Artificial Intelligence (AI) and Machine Learning (ML) job market from 2022 to 2025. Leveraging a real-world crowdsourced dataset of 147,348 cleaned records, the project employs a rigorous Python-based preprocessing pipeline to engineer 12 new analytical dimensions. We present 30 distinct visualizations—including 20 exploratory figures, 6 final Tableau dashboard screenshots, and 4 platform verification assets—that explore salary distributions, the "remote work collapse," geographic hiring patterns, and compensation growth. The final deliverable is an interactive Tableau dashboard designed for executive-level decision-making, providing a unified view of the industry's most critical trends.
+This report documents an end-to-end data visualization project on the global Artificial Intelligence (AI) and Machine Learning (ML) labour market for 2022--2025. Working from a real, crowdsourced dataset of \textbf{147,348} salary submissions across \textbf{87 countries} and \textbf{15 standardized role categories}, we built a Python preprocessing pipeline that enriches the raw data with twelve engineered analytical columns, and an interactive Tableau dashboard that brings ten coordinated worksheets and five headline KPIs onto a single \(1200 \times 1500\) canvas. The dashboard answers five guiding questions: which roles pay the most, how compensation grows across career levels, how remote work has shifted, where the highest-paying hiring activity is concentrated, and how salaries are distributed across pay bands. This report walks through the dataset, the preprocessing pipeline, twenty exploratory figures, every Tableau worksheet, the headline insights, the value Tableau added to the analysis, and full source code in the appendix.
 
 \tableofcontents
 \listoffigures
@@ -131,35 +152,79 @@ This report provides an exhaustive analysis and visualization of the global Arti
 \chapter{Introduction}
 
 \section{Project Context}
-The AI job market is one of the most dynamic sectors of the global economy. As businesses pivot towards generative AI and LLMs, the demand for specialized talent has reached unprecedented levels. This project, titled "AI Job Market Intelligence," aims to provide a clear, data-driven narrative of this evolution.
+The AI/ML job market is one of the most rapidly evolving sectors of the global economy. Generative AI and large language models have re-shaped which roles command top compensation, where hiring is concentrated, and how teams work. This project, ``AI Job Market Intelligence,'' converts a real crowdsourced salary dataset into an interactive, story-driven Tableau dashboard so readers can navigate this evolution at a glance.
+
+\section{Guiding Questions}
+The dashboard and report are organised around five questions derived from the project proposal:
+\begin{enumerate}
+    \item Which AI/ML/Data Science roles pay the most?
+    \item How does salary grow from Entry Level to Executive?
+    \item How has remote work changed year over year from 2022 to 2025?
+    \item Which countries lead global AI hiring, and how do salaries differ by region?
+    \item What does the salary distribution look like across pay bands and quartiles?
+\end{enumerate}
 
 \section{Objectives}
 \begin{itemize}
-    \item \textbf{Data Integrity:} Clean and normalize crowdsourced salary data.
-    \item \textbf{Exploratory Analysis:} Identify key drivers of compensation.
-    \item \textbf{Trend Analysis:} Document the shift in work modes and salary growth.
-    \item \textbf{Dashboarding:} Create a professional-grade visualization in Tableau.
+    \item \textbf{Data Integrity:} Clean and normalize crowdsourced salary data into an analysis-ready table.
+    \item \textbf{Feature Engineering:} Add twelve derived columns (region, salary band, role-relative deviations, etc.) that unlock richer Tableau encodings.
+    \item \textbf{Exploratory Analysis:} Document twenty matplotlib/seaborn figures that profile every facet of the market.
+    \item \textbf{Dashboarding:} Deliver an interactive Tableau master dashboard with ten coordinated worksheets, five KPI tiles, four insight callouts, and a global cross-filter on country.
 \end{itemize}
 
 % ==========================================
-% CHAPTER 2: DATA ACQUISITION & VERIFICATION
+% CHAPTER 2: ABOUT THE DATASET
 % ==========================================
-\chapter{Data Acquisition \& Verification}
+\chapter{About the Dataset}
+\label{ch:dataset}
+
+\section{What was the dataset about?}
+\label{sec:what_dataset}
+The dataset is the \textit{Global Salaries in AI, ML, Data Science and Big Data} survey published under \textbf{CC0 1.0 Public Domain} by \texttt{aijobs.net}, the same first-party organisation that operates the live job board. It is a real, crowdsourced compensation survey rather than a synthetic or scraped third-party file. Every row is a single, anonymous self-reported salary submission. Together, the records describe what AI/ML/Data Science professionals are paid worldwide between 2022 and 2025.
+
+\textbf{Each record carries eleven raw fields:} the work year, the experience level (Entry, Mid, Senior, Executive), the employment type, the free-text job title, the local-currency salary, the currency code, the salary converted to USD, the employee's country of residence, the remote-work ratio (0/50/100), the company's country, and the company size (Small/Medium/Large). After preprocessing we standardise the 406 raw job titles into 15 categories and add twelve engineered analytical columns, bringing the final table to 27 columns and 147,348 cleaned rows.
+
+\subsection*{Why this dataset is real, not synthetic}
+\begin{itemize}[leftmargin=*]
+    \item Published on Kaggle under the official \texttt{aijobs} organisation account — a first-party release, not a re-upload.
+    \item Real-world distribution markers: the United States accounts for 90\% of submissions (matching public hiring statistics), salary distributions are right-skewed (skewness 0.68), and full-time employment is 99.4\% of records.
+    \item 406 distinct raw job-title strings reflect genuine free-text variation rather than a clean synthetic enumeration.
+    \item Updated weekly by the same platform that runs the live aijobs.net job board, so the data is grounded in active hiring activity.
+\end{itemize}
+
+\subsection*{Headline dataset properties}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ll}
+        \toprule
+        \textbf{Property} & \textbf{Value} \\
+        \midrule
+        Records (cleaned) & 147,348 \\
+        Original raw rows & 151,445 \\
+        Time period & 2022 -- 2025 (4 work years) \\
+        Countries (employee + company) & 87 \\
+        Standardized role categories & 15 \\
+        Salary range after outlier removal & \$37,974 -- \$385,000 \\
+        Median / Mean salary & \$147,000 / \$156,237 \\
+        Skewness of salary in USD & 0.68 (right-skewed) \\
+        Final column count & 27 (11 raw + 4 label + 12 engineered) \\
+        Missing values after pipeline & 0 \\
+        License & CC0 1.0 Public Domain \\
+        \bottomrule
+    \end{tabular}
+    \caption{High-level properties of the analysis-ready dataset.}
+\end{table}
 
 \section{Source Platform Verification}
-The data is sourced from \textit{aijobs.net} and \textit{foorilla.com}. To verify the authenticity and scale of the data source, we have included screenshots of the parent platforms.
+The data is sourced from \textit{aijobs.net} and \textit{foorilla.com}. To verify authenticity and scale, we include four screenshots of the parent platforms.
 
-\subsection{Asset 1: Foorilla Hiring Platform}
-Figure \ref{fig:asset1} shows the Foorilla platform, which acts as the parent organization for the salary survey. It provides real-time job aggregation and hiring analytics, ensuring the data is grounded in actual market activity.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{pic1_foorilla_hiring.png}
-    \caption{Verification of Foorilla's operational hiring platform.}
+    \caption{Foorilla's operational hiring platform.}
     \label{fig:asset1}
 \end{figure}
 
-\subsection{Asset 2: Media and Social Presence}
-Figure \ref{fig:asset2} demonstrates the media presence of the source platform, highlighting its recognition within the tech community as a reliable provider of industry insights.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{pic2_foorilla_media.png}
@@ -167,8 +232,6 @@ Figure \ref{fig:asset2} demonstrates the media presence of the source platform, 
     \label{fig:asset2}
 \end{figure}
 
-\subsection{Asset 3: Market Insight Dashboards}
-Figure \ref{fig:asset3} showcases the internal analytical tools provided by the source, which mirror the objectives of our project—transforming raw job listings into actionable intelligence.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{pic3_foorilla_insight.png}
@@ -176,8 +239,6 @@ Figure \ref{fig:asset3} showcases the internal analytical tools provided by the 
     \label{fig:asset3}
 \end{figure}
 
-\subsection{Asset 4: aijobs.net Live Search}
-Figure \ref{fig:asset4} shows the live user interface of aijobs.net, where professionals submit their salary data anonymously. This crowdsourced mechanism is the primary origin of our dataset.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{pic4_aijobs_search.png}
@@ -191,32 +252,58 @@ Figure \ref{fig:asset4} shows the live user interface of aijobs.net, where profe
 \chapter{Preprocessing Pipeline}
 
 \section{Methodology}
-The pipeline is designed for scalability and reproducibility. It consists of five distinct Python scripts that transform the raw 151,445 records into a refined 147,348-row dataset with 27 analytical columns.
+The pipeline is designed for scalability and reproducibility. Five Python scripts transform the raw 151,445 records into a refined 147,348-row table with 27 analytical columns. No synthetic data is introduced at any stage --- every row in the final output is a real salary submission.
 
-\section{Pipeline Scripts}
+\section{Pipeline Stages}
 \begin{enumerate}
-    \item \texttt{01\_explore.py}: Initial EDA and profiling.
-    \item \texttt{02\_clean.py}: Filtering and outlier removal.
-    \item \texttt{03\_title\_grouping.py}: Mapping 406 job titles to 15 categories.
-    \item \texttt{04\_summary\_stats.py}: Calculation of KPI metrics for the dashboard.
-    \item \texttt{05\_feature\_engineering.py}: Engineering 12 new analytical columns.
+    \item \texttt{01\_explore.py} --- initial profiling: shape, nulls, distributions, skewness.
+    \item \texttt{02\_clean.py} --- filtering and outlier removal.
+    \item \texttt{03\_title\_grouping.py} --- mapping 406 raw job titles into 15 standardized categories.
+    \item \texttt{04\_summary\_stats.py} --- computing every KPI metric used in the dashboard.
+    \item \texttt{05\_feature\_engineering.py} --- engineering twelve new analytical columns.
 \end{enumerate}
+
+\section{Cleaning Stages and Row Accounting}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lrrr}
+        \toprule
+        \textbf{Step} & \textbf{Rows Before} & \textbf{Rows After} & \textbf{Removed} \\
+        \midrule
+        Keep Full-Time only & 151,445 & 150,541 & 904 \\
+        Keep 2022--2025 only & 150,541 & 150,264 & 277 \\
+        Outlier removal (1st--99th percentile) & 150,264 & 147,348 & 2,916 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Row accounting through the cleaning pipeline.}
+\end{table}
+
+\section{Engineered Columns}
+Twelve analytical columns were added without introducing synthetic data:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Categorical bins} — \texttt{salary\_band} (six pay tiers), \texttt{salary\_quartile} (Q1--Q4).
+    \item \textbf{Geographic enrichment} — \texttt{region} (six regions), \texttt{is\_us} (US vs Rest of World).
+    \item \textbf{Role family} — \texttt{is\_ai\_core} (AI/ML Core vs broader Data \& Tech).
+    \item \textbf{Sort key} — \texttt{exp\_order} so the experience axis renders Entry $\to$ Mid $\to$ Senior $\to$ Executive.
+    \item \textbf{Year-relative} — \texttt{year\_avg\_salary}, \texttt{salary\_vs\_year\_avg}, \texttt{salary\_vs\_year\_avg\_pct}.
+    \item \textbf{Role-relative} — \texttt{role\_avg\_salary}, \texttt{salary\_vs\_role\_avg}, \texttt{salary\_vs\_role\_avg\_pct}.
+\end{itemize}
 
 % ==========================================
 % CHAPTER 4: EXPLORATORY DATA ANALYSIS
 % ==========================================
 \chapter{Exploratory Data Analysis}
 
-This chapter provides a deep-dive into the 20 exploratory visualizations generated during the analysis phase. Each figure represents a critical facet of the AI job market.
+This chapter walks through the twenty static figures generated in Python. They served as the design reference for the Tableau dashboard.
 
 \section{High-Level Market KPIs}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{09_kpi_summary_cards.png}
-    \caption{KPI Summary Cards - Global Metrics}
+    \caption{KPI Summary Cards --- Global Metrics}
     \label{fig:fig09}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig09} serves as the exploratory executive summary. It highlights the global median salary (\$147k), the total record count, and the "Remote \%" which stands at 20.8\%. The EX/EN ratio of 1.91x indicates that an executive earns nearly double an entry-level professional.
+\textbf{Explanation:} Figure~\ref{fig:fig09} is the exploratory executive summary. Median salary sits at \$147K, mean at \$156K. Remote work captures only 20.8\% of the dataset and the EX/EN ratio of $1.91\times$ shows an executive earns nearly double an entry-level professional.
 
 \section{Salary Distribution Analysis}
 \begin{figure}[H]
@@ -225,7 +312,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Frequency Distribution of AI Salaries}
     \label{fig:fig01}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig01} shows a right-skewed distribution. Most salaries are concentrated between \$100,000 and \$200,000. The long tail on the right represents specialized roles and high-cost-of-living regions.
+\textbf{Explanation:} The distribution is right-skewed. Most salaries cluster between \$100K and \$200K; the long upper tail reflects specialised roles and high-cost-of-living regions.
 
 \begin{figure}[H]
     \centering
@@ -233,7 +320,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Salary Distribution by Pay Bands}
     \label{fig:fig02}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig02} bins salaries into discrete bands. The \$100k-\$150k band is the most populous, containing over 45,000 records, followed closely by the \$150k-\$200k band.
+\textbf{Explanation:} The \$100K--\$150K band is the most populous (\~31\% of all records, ~45,000 rows), followed by \$150K--\$200K (~24\%).
 
 \section{Temporal Trends (2022--2025)}
 \begin{figure}[H]
@@ -242,7 +329,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Salary Growth vs. Submission Volume (Dual-Axis)}
     \label{fig:fig03}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig03} tracks the average and median salaries alongside the count of records. While the volume of submissions has grown exponentially (bars), the average salary (line) has remained relatively stable after a jump in 2023.
+\textbf{Explanation:} Submission volume grows 48$\times$ between 2022 (1,587) and 2025 (76,424). Median salary climbs sharply in 2023 then plateaus near \$146K, signalling a maturing market.
 
 \section{Role and Specialization}
 \begin{figure}[H]
@@ -251,7 +338,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Average Salary by Standardized Role Categories}
     \label{fig:fig04}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig04} ranks the 15 standardized roles. ML Engineer / MLOps leads the market at \$194,303, while Data Analysts are at the lower end around \$107k.
+\textbf{Explanation:} ML Engineer / MLOps leads at \$194,303 — \textbf{81\% above} Data Analyst's \$107,465 floor. Software Engineer (\$180K) and Research Scientist (\$175K) round out the top three.
 
 \begin{figure}[H]
     \centering
@@ -259,7 +346,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{AI/ML Core vs. Broad Data \& Tech Comparison}
     \label{fig:fig13}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig13} compares "AI/ML Core" roles (Engineers/Researchers) against "Data \& Tech" roles. Core AI roles earn a significant premium of approximately \$20,000 on average.
+\textbf{Explanation:} ``AI/ML Core'' roles (engineers and researchers) average \$171K vs \$151K for the broader ``Data \& Tech'' family — a 13\% premium for direct AI exposure.
 
 \begin{figure}[H]
     \centering
@@ -267,7 +354,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Salary Ranges and Variance by Role}
     \label{fig:fig20}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig20} uses high/low markers to show the salary variance within roles. Management and ML Engineering show the widest ranges, indicating high variability based on seniority and company.
+\textbf{Explanation:} Management and ML Engineering display the widest salary ranges, signalling that seniority and company tier dominate compensation in those tracks.
 
 \section{The Remote Work Paradigm Shift}
 \begin{figure}[H]
@@ -276,23 +363,23 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Overall Breakdown of Work Modes}
     \label{fig:fig05}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig05} shows that 79\% of all records in the dataset are now "On-site," reflecting a massive return-to-office trend.
+\textbf{Explanation:} Across the full 2022--2025 window, on-site captures roughly 74\% of records, remote 21\%, hybrid the residual.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{10_remote_trend_stacked.png}
-    \caption{The "Remote Work Collapse" Trend (2022--2025)}
+    \caption{The ``Remote Work Collapse'' Trend (2022--2025)}
     \label{fig:fig10}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig10} is the most telling chart. In 2022, 53\% of roles were remote. By 2025, that number has dropped to 20\%, effectively documenting the end of the remote-first era in AI.
+\textbf{Explanation:} The headline finding of the project. Remote dropped from \textbf{53.5\% in 2022 to 20.3\% in 2025} while on-site doubled from 43.5\% to 79.6\%. Hybrid effectively disappears.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{16_remote_by_role_heatmap.png}
-    \caption{Heatmap of Remote Work adoption by Job Role}
+    \caption{Heatmap of Remote Work Adoption by Job Role}
     \label{fig:fig16}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig16} shows that certain roles, like Product Management and Consultants, have higher remote adoption than core ML Engineers who are more likely to be on-site.
+\textbf{Explanation:} Product Management and Consultants retain the highest remote ratios; ML Engineers and Data Architects are far more likely to be on-site.
 
 \section{Experience and Career Progression}
 \begin{figure}[H]
@@ -301,7 +388,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Salary Progression Across Career Levels}
     \label{fig:fig07}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig07} demonstrates a linear-like growth in salary from Entry Level (\$103k) to Executive (\$196k).
+\textbf{Explanation:} Salaries grow almost linearly: Entry \$103K $\to$ Mid \$140K $\to$ Senior \$170K $\to$ Executive \$196K.
 
 \begin{figure}[H]
     \centering
@@ -309,7 +396,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Statistical Distribution of Salary by Experience}
     \label{fig:fig08}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig08} provides the boxplot view, showing that while entry-level pay is tight, senior and executive roles have much wider distributions and higher medians.
+\textbf{Explanation:} The IQR widens with seniority: \$60K at Entry vs \$99K at Executive. Senior roles also show heavier upper-whisker outliers.
 
 \begin{figure}[H]
     \centering
@@ -317,7 +404,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Interaction between Work Year and Experience Level}
     \label{fig:fig19}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig19} shows how different experience levels have fared over time. Senior and Mid-level roles have seen steady growth, whereas Entry-level pay has seen more fluctuation.
+\textbf{Explanation:} Senior and Executive growth tracks are smooth; Entry-Level pay is the most volatile across years, partly because the Entry sample is the smallest.
 
 \section{Geographic Analysis}
 \begin{figure}[H]
@@ -326,15 +413,15 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Average Salary in Top 10 Countries}
     \label{fig:fig06}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig06} identifies the highest-paying countries. Israel, Puerto Rico, and the United States lead the global rankings.
+\textbf{Explanation:} The US dominates by volume (133,143 records, \$161K avg) while smaller markets like Israel and Switzerland post comparable per-record averages despite tiny sample sizes.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{11_salary_by_region.png}
-    \caption{Regional Salary Comparison (North America vs. Others)}
+    \caption{Regional Salary Comparison}
     \label{fig:fig11}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig11} groups countries into regions. North America dominates, with the Middle East \& Africa following, largely driven by high salaries in Israel.
+\textbf{Explanation:} North America averages \$160K --- a \textbf{94\% premium over Latin America} (\$82K). Europe sits in the middle at \$88K.
 
 \begin{figure}[H]
     \centering
@@ -342,7 +429,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Comparison: United States vs. Rest of World}
     \label{fig:fig14}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig14} illustrates the disparity between the US (\$161k avg) and the combined average of all other countries (\$108k avg).
+\textbf{Explanation:} A binary split that strips away the regional noise: US average \$161,381 vs Rest of World \$108,024 --- a 49\% premium for US-based hiring.
 
 \section{Advanced Market Insights}
 \begin{figure}[H]
@@ -351,7 +438,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Salary and Count by Company Size}
     \label{fig:fig12}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig12} shows that Medium-sized companies offer the most jobs and competitive salaries, while Small companies pay the least.
+\textbf{Explanation:} Medium-sized companies post both the largest hiring volume and the most competitive average salary; small-company pay drops sharply.
 
 \begin{figure}[H]
     \centering
@@ -359,7 +446,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Heatmap of Salary Intensity by Role and Year}
     \label{fig:fig15}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig15} uses color intensity to show which roles are gaining the most financial traction over time. ML Engineering shows a darkening trend, indicating consistent growth.
+\textbf{Explanation:} Color intensity reveals which roles are gaining financial traction. ML Engineering and Research Scientist deepen consistently year on year.
 
 \begin{figure}[H]
     \centering
@@ -367,7 +454,7 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Distribution of Salary Quartiles within each Role}
     \label{fig:fig17}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig17} shows that for roles like "Manager," a significant portion of the workforce is in the Q4 (Top 25\%) bracket, whereas for "Data Analysts," most are in Q1.
+\textbf{Explanation:} Manager / Director and ML Engineer skew heavily toward Q4 (top-25\% pay band); Data Analyst is concentrated in Q1.
 
 \begin{figure}[H]
     \centering
@@ -375,91 +462,322 @@ This chapter provides a deep-dive into the 20 exploratory visualizations generat
     \caption{Scatter Plot of Individual Deviations from Year Averages}
     \label{fig:fig18}
 \end{figure}
-\textbf{Explanation:} Figure \ref{fig:fig18} is a high-density scatter plot. Each dot is a real salary. Colors indicate whether the person is earning above (green) or below (red) their role's average for that year.
+\textbf{Explanation:} Each dot is a real salary; colour encodes whether the person earns above (green) or below (red) their role's average for that year.
 
 % ==========================================
-% CHAPTER 5: TABLEAU DASHBOARD VISUALIZATION
+% CHAPTER 5: TABLEAU MASTER DASHBOARD
 % ==========================================
-\chapter{Tableau Dashboard Visualization}
+\chapter{Tableau Master Dashboard}
+\label{ch:tableau}
 
-This chapter presents the final, interactive dashboard elements as they appear in the production environment. These visualizations are the result of the entire preprocessing and design workflow.
+The final deliverable is an interactive Tableau dashboard at $1200 \times 1500$ pixels. It contains \textbf{ten coordinated worksheets}, \textbf{five KPI tiles}, \textbf{four insight callouts}, a global \texttt{Year} filter, and a click-to-filter action that lets the Global Map drive every other chart on the canvas. All visuals follow a unified \textit{forest emerald} palette with bold sage borders so each panel reads as a clearly framed card.
 
-\section{The Unified Dashboard}
-Figure \ref{fig:tableau_dashboard} presents the full dashboard view, integrating all 7 primary sheets into a single interactive canvas.
+\section{The Unified Master Dashboard}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{Tableau_Dashboard.png}
-    \caption{The Final AI Job Market Intelligence Dashboard.}
-    \label{fig:tableau_dashboard}
+    \includegraphics[width=\textwidth]{Tableau_Master_Dashboard.png}
+    \caption{The complete AI Job Market Intelligence master dashboard.}
+    \label{fig:tableau_master}
 \end{figure}
-\textbf{Description:} This unified view allows for cross-filtering and synchronized analysis. Users can select a region on the map to see how salary trends and role distributions update instantly.
+\textbf{Description:} The canvas is structured as a top-down narrative. A navy-forest title bar identifies the project; below it sit five colour-coded KPI tiles (\$147K Median, \$156K Mean, 147,348 Records, 20.8\% Remote, $1.91\times$ EX/EN). Beneath the KPIs, three labelled section bands group the worksheets: ``Salary Trends \& Role Compensation'' (Salary Trend + Salary By Role), ``Work Mode $\cdot$ Experience $\cdot$ Global Hiring'' (Work Mode donut, Experience bars, World choropleth), and ``Regional $\cdot$ Company Size $\cdot$ Role Family $\cdot$ Market Concentration'' (the four new comparative panels). A full-width Salary Band Distribution closes the analytical area, followed by a $2\times2$ grid of insight callouts and a forest-green attribution footer.
 
 \section{Detailed Dashboard Components}
 
-\subsection{Salary Trends in Tableau}
+\subsection{Salary Trend (2022--2025)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{Salary_trend_tableau.png}
-    \caption{Tableau View: Salary Trend (Avg/Median) with Volume Bars.}
-    \label{fig:tableau_trend}
+    \includegraphics[width=\textwidth]{Tableau_Salary_Trend.png}
+    \caption{Tableau view: dual-pane Salary Trend with median line and submission-volume bars.}
+    \label{fig:tab_trend}
 \end{figure}
-\textbf{Analysis:} Figure \ref{fig:tableau_trend} shows the dual-axis implementation in Tableau, where the submission volume is visualized as secondary bars, providing context to the salary lines.
+\textbf{Analysis:} The upper pane shows the average salary line; the lower pane overlays the median line on submission-volume bars. The chart visualises a maturing market: median pay rose 46\% from \$102K (2022) to \$149K (2024), while submission volume grew almost 50$\times$ in the same window.
 
-\subsection{Compensation by Role}
+\subsection{Salary by Role}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{Salary_by_Role_Tableau.png}
-    \caption{Tableau View: Salary Ranking by Job Category.}
-    \label{fig:tableau_role}
+    \includegraphics[width=\textwidth]{Tableau_Salary_By_Role.png}
+    \caption{Tableau view: horizontal bar ranking of the top role categories by average salary.}
+    \label{fig:tab_role}
 \end{figure}
-\textbf{Analysis:} The horizontal bar chart in Figure \ref{fig:tableau_role} uses color encoding to highlight the \$194k leadership of ML Engineering.
+\textbf{Analysis:} Bars are sorted descending and colour-encoded by total salary spend. ML Engineer / MLOps leads at \$194K, followed by Software Engineer, Manager / Director, Product Manager, Data Architect, and Research Scientist, all clearing the \$170K mark.
 
-\subsection{Work Mode Dynamics}
+\subsection{Work Mode (Donut)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Work_Mode_tableau.png}
-    \caption{Tableau View: The Return to Office (Donut Chart).}
-    \label{fig:tableau_work_mode}
+    \begin{minipage}[c]{0.40\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,keepaspectratio]{Tableau_Work_Mode.png}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.56\textwidth}
+        \small\textbf{Analysis:} The hole-and-slice composition emphasises the dominance of on-site (orange arc, $\sim$74\%) versus remote (green) and a near-vanishing hybrid sliver. The donut is the headline visual for the ``return-to-office'' story --- a single glance communicates that the remote-first era is over.
+    \end{minipage}
+    \caption{Tableau view: donut showing on-site / remote / hybrid share.}
+    \label{fig:tab_work_mode}
 \end{figure}
-\textbf{Analysis:} The donut chart in Figure \ref{fig:tableau_work_mode} provides a high-level summary of the work-mode split, with "On-site" dominating at nearly 80\%.
 
-\subsection{Global Compensation Map}
+\subsection{Global Hiring Map}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{GlobalMap_Tableau.png}
-    \caption{Tableau View: Global Salary Choropleth Map.}
-    \label{fig:tableau_map}
+    \includegraphics[width=\textwidth]{Tableau_Global_Map.png}
+    \caption{Tableau view: world choropleth coloured by average salary per country.}
+    \label{fig:tab_map}
 \end{figure}
-\textbf{Analysis:} Figure \ref{fig:tableau_map} shows the geographic concentration of high-paying roles, with North America and the Middle East highlighted as primary hubs.
+\textbf{Analysis:} North America renders in the deepest navy-purple; Europe is mid-tone; Latin America, Africa and most of Asia stay pale. Clicking any country triggers the global filter action and re-scopes every other panel on the dashboard.
 
-\subsection{Experience-Salary Progression}
+\subsection{Salary vs Experience}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{Salary_vs_Exp_tableau.png}
-    \caption{Tableau View: Salary Growth across Experience Tiers.}
-    \label{fig:tableau_exp}
+    \begin{minipage}[c]{0.40\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,keepaspectratio]{Tableau_Salary_Vs_Experience.png}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.56\textwidth}
+        \small\textbf{Analysis:} The bars step cleanly from Entry $\to$ Executive ( \$100K $\to$ \$196K). The custom \texttt{exp\_order} column enforces the natural sort order rather than the default alphabetical one. The progression --- \$103K, \$140K, \$170K, \$196K --- is almost linear, with each level worth roughly an additional \$30K--\$40K.
+    \end{minipage}
+    \caption{Tableau view: average salary across the four experience levels.}
+    \label{fig:tab_exp}
 \end{figure}
-\textbf{Analysis:} Figure \ref{fig:tableau_exp} shows the clean, sorted axis for experience, ensuring the progression from Entry to Executive is intuitive for the end-user.
+
+\subsection{Salary by Region (NEW)}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[c]{0.40\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,keepaspectratio]{Tableau_Salary_By_Region.png}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.56\textwidth}
+        \small\textbf{Analysis:} North America's bar (\$159K) towers over the rest of the world. Asia Pacific reaches \$119K; Europe and Latin America cluster below \$90K. Colour intensity reinforces the magnitude of the gap. North America's premium over Latin America is \textbf{94\%}.
+    \end{minipage}
+    \caption{Tableau view: average salary across the six engineered regions.}
+    \label{fig:tab_region}
+\end{figure}
+
+\subsection{Salary by Company Size (NEW)}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[c]{0.40\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,keepaspectratio]{Tableau_Salary_By_Company_Size.png}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.56\textwidth}
+        \small\textbf{Analysis:} Small companies pay materially less ($\sim$\$103K) than Medium ($\sim$\$155K) and Large ($\sim$\$165K). Once a company is past the ``Medium'' threshold, additional headcount does not translate into proportionally higher pay --- the largest leap is from Small to Medium ($\sim$50\% lift), while Medium $\to$ Large adds only $\sim$\$10K.
+    \end{minipage}
+    \caption{Tableau view: average salary across Small / Medium / Large companies.}
+    \label{fig:tab_size}
+\end{figure}
+
+\subsection{AI Core vs Data \& Tech (NEW)}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[c]{0.40\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,keepaspectratio]{Tableau_AI_Core_Vs_Data_Tech.png}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.56\textwidth}
+        \small\textbf{Analysis:} AI/ML Core roles average \$171K vs \$151K for Data \& Tech --- a 13\% premium. The chart quantifies the ``AI tax'': the additional value the market places on direct AI/ML expertise (engineers, researchers, MLOps) versus adjacent data work (analysts, data engineers, data governance).
+    \end{minipage}
+    \caption{Tableau view: AI/ML Core roles vs broader Data \& Tech.}
+    \label{fig:tab_ai_core}
+\end{figure}
+
+\subsection{US vs Rest of World (NEW)}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[c]{0.40\textwidth}
+        \centering
+        \includegraphics[width=\linewidth,keepaspectratio]{Tableau_US_Vs_Rest_Of_World.png}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.56\textwidth}
+        \small\textbf{Analysis:} The two-bar comparison strips out regional noise. United States: \$161K average across 133,143 submissions. Rest of World: \$108K average across 14,205 submissions. The result is a 49\% per-record premium for US-based hiring, even before adjusting for cost-of-living.
+    \end{minipage}
+    \caption{Tableau view: a binary US vs Rest-of-World salary split.}
+    \label{fig:tab_us_row}
+\end{figure}
+
+\subsection{Salary Band Distribution (NEW)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Tableau_Salary_Band_Distribution.png}
+    \caption{Tableau view: how the 147,348 records distribute across six pay bands.}
+    \label{fig:tab_band}
+\end{figure}
+\textbf{Analysis:} The \$100K--\$150K band is the modal class with $\sim$27K rows, immediately followed by \$150K--\$200K ($\sim$21K) and \$60K--\$100K ($\sim$16K). Sub-\$60K is the smallest band (3.9\%) and the top tier \$260K+ holds 7.3\% --- a non-trivial cohort of high earners.
 
 % ==========================================
-% CHAPTER 6: TABLEAU IMPLEMENTATION DETAILS
+% CHAPTER 6: KEY INSIGHTS
+% ==========================================
+\chapter{Key Insights --- What We Found}
+\label{ch:insights}
+
+\section{Insight 1: ML Engineering is the highest-paid AI/ML track}
+\begin{insightbox}
+ML Engineer / MLOps leads at \$194,303 average --- 81\% above the lowest-paid track (Data Analyst at \$107,465). Software Engineer (\$180K) and Research Scientist (\$175K) follow.
+\end{insightbox}
+
+\section{Insight 2: Compensation grows nearly $2\times$ from Entry to Executive}
+\begin{insightbox}
+Entry Level \$102,743 $\to$ Mid \$140,382 $\to$ Senior \$170,351 $\to$ Executive \$195,935. The EX/EN ratio is exactly $1.91\times$, and the inter-quartile spread widens with seniority (\$60K at Entry vs \$99K at Executive).
+\end{insightbox}
+
+\section{Insight 3: Remote work has collapsed since 2022}
+\begin{insightbox}
+Remote dropped from \textbf{53.5\% (2022)} to \textbf{20.3\% (2025)}. On-site nearly doubled from 43.5\% to 79.6\%. Hybrid effectively vanished from 3\% to under 0.05\%. The dataset documents the end of the remote-first era for AI roles.
+\end{insightbox}
+
+\section{Insight 4: The US dominates volume, but the premium is everywhere on the map}
+\begin{insightbox}
+The United States supplies \textbf{90.4\% of submissions} (133,143 of 147,348) at a \$161,381 average. Rest of World averages \$108,024. North America commands a 94\% premium over Latin America, the lowest-paying region.
+\end{insightbox}
+
+\section{Insight 5: Salaries are heavily concentrated in the \$100K--\$200K band}
+\begin{insightbox}
+55\% of all records sit in the combined \$100K--\$200K window (31\% in \$100K--\$150K plus 24\% in \$150K--\$200K). The top tier (\$260K+) holds 7.3\% --- a healthy upper tail. Sub-\$60K accounts for under 4\%.
+\end{insightbox}
+
+\section{Insight 6: AI/ML Core roles command a 13\% premium}
+\begin{insightbox}
+AI/ML Core (engineers, researchers, MLOps) averages \$171,009 vs \$150,685 for the broader Data \& Tech family. Direct AI/ML exposure is rewarded with a $\sim$\$20K annual premium even after holding role family constant.
+\end{insightbox}
+
+\section{Insight 7: Company size matters --- but only past ``Small''}
+\begin{insightbox}
+Small companies pay \$103K avg; Medium \$155K; Large \$165K. The largest jump is between Small and Medium ($\sim$50\% lift); Medium-to-Large is only \$10K. Diversifying into Medium-sized firms gives roughly the same pay as Large with a far wider job-supply.
+\end{insightbox}
+
+\section{Insight 8: The market is maturing --- volume keeps climbing, pay has plateaued}
+\begin{insightbox}
+Submission volume grew 48$\times$ between 2022 (1,587) and 2025 (76,424). Yet the median salary trajectory flattens after 2024 (\$149K $\to$ \$146K). The market is broadening more than it is inflating.
+\end{insightbox}
+
+% ==========================================
+% CHAPTER 7: HOW TABLEAU HELPED
+% ==========================================
+\chapter{How Tableau Helped in Our Analysis}
+\label{ch:tableau_helped}
+
+While the EDA in Python answered \textit{what} the data shows, Tableau answered \textit{so what} --- it took the static findings and made them explorable, comparable, and cross-filterable on a single canvas. This chapter enumerates the concrete ways Tableau elevated the analysis.
+
+\section{1. From static figures to a single interactive canvas}
+The twenty Python figures each told one story. Tableau merged the strongest ten into a unified $1200\times1500$ dashboard with cross-filtering, so a reader can investigate a specific cohort (e.g.\ ``Senior, US, 2024'') without producing a new figure. The KPI tiles update live as filters are applied.
+
+\section{2. Click-to-filter actions across every worksheet}
+A single \texttt{Filter} action on the Global Map propagates the selected country into every other worksheet. Clicking the United States re-scopes the role bar, the experience bars, the work-mode donut, and all four comparative panels. This kind of synchronized cross-analysis is impractical to replicate in matplotlib.
+
+\section{3. Custom calculated fields and parameters}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Avg Salary USD:} \texttt{AVG([Salary In Usd])} --- standardised the metric across every worksheet so KPI tiles and chart axes stay consistent.
+    \item \textbf{Median Avg Salary USD:} \texttt{MEDIAN([Salary In Usd])} --- used to overlay the median line on the trend chart.
+    \item \textbf{Year filter:} a multi-value dropdown wired to every sheet via \texttt{Apply to Worksheets All Using This Data Source}.
+    \item \textbf{Custom shelf sorts} on \texttt{salary\_band} and \texttt{title\_group} so the bars render in salary order rather than alphabetical.
+\end{itemize}
+
+\section{4. Geographic intelligence out of the box}
+By tagging \texttt{company\_location} with the \textit{Country/Region} geographic role, Tableau auto-resolved the 87 ISO-2 codes into a world choropleth without writing a single line of GIS code. Mapbox tiles and the colour-by-AVG encoding let the reader spot the US dominance instantly.
+
+\section{5. Tooltips that beat static legends}
+Every panel has a custom tooltip showing role count, average, median, and (where relevant) deviation from the year or role average. Hovering replaces the need for legends and side tables.
+
+\section{6. KPI strip drives at-a-glance reading}
+Five colour-coded KPI tiles --- median, mean, total records, remote \%, EX/EN multiple --- sit directly under the title bar. A reader gets the ``shape'' of the market in two seconds before drilling into any chart.
+
+\section{7. Visual encoding richness}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Sequential colour scales} on the choropleth and the Salary By Role bar make magnitude visible at a glance.
+    \item \textbf{Categorical palettes} on Work Mode and Salary Band Distribution use colour to encode dimension membership.
+    \item \textbf{Dual-axis} on Salary Trend lets a single chart compare two measures (median line + volume bars) on a shared time axis.
+\end{itemize}
+
+\section{8. Reproducibility through a packaged \texttt{.twb} file}
+The entire dashboard is committed as a single \texttt{Dashboard.twb} XML file in the repository. Anyone with Tableau Desktop can open it, repoint the data connection, and reproduce every chart, calculated field, filter and action exactly. There is no hidden state.
+
+\section{Summary}
+Tableau converted our static findings into a tool. Without it the report would be a slide deck of charts; with it, the report has a companion artefact that the reader can manipulate. That shift --- from \textit{communicate} to \textit{explore} --- is the principal value Tableau brought to this project.
+
+% ==========================================
+% CHAPTER 8: TABLEAU IMPLEMENTATION DETAILS
 % ==========================================
 \chapter{Tableau Implementation Details}
+
+\section{Data Source}
+The workbook connects directly to \texttt{data/processed/salaries\_enhanced.csv} via Tableau's text-file connector. \texttt{company\_location} is assigned the \textit{Country/Region} geographic role.
 
 \section{Calculated Fields}
 \begin{itemize}
     \item \textbf{Avg Salary USD:} \texttt{AVG([Salary In Usd])}
-    \item \textbf{EX/EN Ratio:} \texttt{AVG(IF [Exp] = "EX" THEN [Sal] END) / AVG(IF [Exp] = "EN" THEN [Sal] END)}
+    \item \textbf{Median Salary USD:} \texttt{MEDIAN([Salary In Usd])}
+    \item \textbf{Count of records:} \texttt{COUNT([Salary In Usd])}
+    \item \textbf{EX/EN Ratio:} \\
+          \texttt{AVG(IF [Experience Level]="EX" THEN [Sal] END)} \\
+          \texttt{/ AVG(IF [Experience Level]="EN" THEN [Sal] END)}
 \end{itemize}
 
-\section{Dashboard Layout}
-The dashboard is arranged to guide the user from high-level KPIs at the top down to granular regional and role-based details at the bottom. The use of Navy (\#003875) as the primary brand color ensures a professional aesthetic.
+\section{Worksheet Inventory}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{\#} & \textbf{Worksheet} & \textbf{Chart Type} \\
+        \midrule
+        1 & Salary Trend & Line + Bar (dual-axis) \\
+        2 & Salary By Role & Horizontal Bar \\
+        3 & Work Mode & Donut \\
+        4 & Global Map & Choropleth \\
+        5 & Salary Vs Experience & Vertical Bar \\
+        6 & Salary By Region & Horizontal Bar \\
+        7 & Salary By Company Size & Vertical Bar \\
+        8 & AI Core Vs Data Tech & Vertical Bar \\
+        9 & US Vs Rest Of World & Vertical Bar \\
+        10 & Salary Band Distribution & Histogram \\
+        \bottomrule
+    \end{tabular}
+    \caption{Ten Tableau worksheets composed onto the master dashboard.}
+\end{table}
+
+\section{Dashboard Layout (1200 \(\times\) 1500)}
+The dashboard is laid out top-to-bottom in a strict narrative grid:
+\begin{enumerate}
+    \item Title bar (forest green) --- ``AI JOB MARKET INTELLIGENCE.''
+    \item Subtitle bar with a Year-filter dropdown anchored on the right.
+    \item KPI strip (5 colour-coded tiles).
+    \item Section band 1: Salary Trends \& Role Compensation. (Sheets 1, 2.)
+    \item Section band 2: Work Mode $\cdot$ Experience $\cdot$ Global Hiring. (Sheets 3, 5, 4.)
+    \item Section band 3: Regional $\cdot$ Company Size $\cdot$ Role Family $\cdot$ Market Concentration. (Sheets 6, 7, 8, 9.)
+    \item Section band 4: Salary Distribution Across Pay Bands. (Sheet 10, full width.)
+    \item Insight callouts ($2 \times 2$ grid).
+    \item Footer (forest green) --- group, course, source attribution.
+\end{enumerate}
+
+\section{Color Palette --- Forest Emerald}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Hex} & \textbf{Role} & \textbf{Where used} \\
+        \midrule
+        \texttt{\#1B4332} & Forest (primary) & Title bar, footer, KPI \#1 number \\
+        \texttt{\#2D6A4F} & Emerald & Subtitle bar, all panel borders (2px) \\
+        \texttt{\#40916C} & Jade & KPI \#2 (Mean) \\
+        \texttt{\#52B788} & Sage & KPI \#3 (Records) \\
+        \texttt{\#D8973C} & Honey & KPI \#4 (Remote), insight border \\
+        \texttt{\#BC4749} & Rust & KPI \#5 (EX/EN) \\
+        \texttt{\#FAF8F0} & Cream parchment & KPI tile + chart backgrounds \\
+        \texttt{\#E8F1ED} & Mint mist & Section header bands \\
+        \texttt{\#FFF4E5} & Warm peach & Insight callout backgrounds \\
+        \bottomrule
+    \end{tabular}
+    \caption{Forest emerald palette used throughout the master dashboard.}
+\end{table}
 
 % ==========================================
-% CHAPTER 7: CONCLUSION
+% CHAPTER 9: CONCLUSION
 % ==========================================
 \chapter{Conclusion}
-The project successfully maps the current state of the AI job market. The data confirms a robust, high-paying industry that has rapidly moved back to on-site work while maintaining strong compensation for specialized ML roles. The inclusion of the Tableau dashboard provides a powerful tool for stakeholders to navigate this evolving landscape.
+
+This project converted a real, crowdsourced dataset of 147,348 AI/ML/Data Science salary submissions into an interactive Tableau master dashboard plus a reproducible Python preprocessing pipeline. The combination answers all five guiding questions of the proposal: ML Engineer / MLOps tops the role pay table at \$194K; salary roughly doubles between Entry and Executive ($1.91\times$); remote work collapsed from 53.5\% to 20.3\% in just three years; the United States captures 90\% of submissions at a \$161K average; and 55\% of all records sit in the \$100K--\$200K band.
+
+The Tableau dashboard is the centrepiece of the deliverable. It moves the analysis from static figures to a tool that stakeholders can interrogate themselves --- click a country on the map, watch every other panel re-scope, and read off the implications from the four amber insight callouts. The forest-emerald palette and bold sage borders give the dashboard a distinct, non-default visual identity.
+
+Together the report, the source code, the twenty exploratory figures, and the live Tableau workbook form an end-to-end narrative of the AI job market between 2022 and 2025 --- a market that is broadening rapidly, paying premium wages for direct AI exposure, and decisively returning to the office.
 
 % ==========================================
 % APPENDICES
