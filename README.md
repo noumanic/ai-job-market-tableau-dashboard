@@ -15,6 +15,7 @@ Interactive Tableau master dashboard built on **147,348 real salary submissions*
 | Tableau Public Dashboard | *(link after publish)* |
 | Project Repository | https://github.com/noumanic/ai-job-market-analytics |
 | Final Project Report (PDF) | `docs/Final_Project_Report.pdf` (40 pages) |
+| Final Presentation (PPTX) | `docs/Group8_Final_Presentation.pptx` (26 slides) |
 | Tableau Workbook | `tableau/Dashboard.twb` |
 | Tableau PDF Export | `tableau/Dashboard.pdf` |
 | Dataset — GitHub (source) | https://github.com/foorilla/ai-jobs-net-salaries |
@@ -284,9 +285,10 @@ ai-job-market-analytics/
 |   +-- TABLEAU_NOTES.md                      # calculated fields, parameters, filter actions
 |
 +-- docs/
-|   +-- Final_Project_Report.tex              # final report — LaTeX source (~50 pages)
+|   +-- Final_Project_Report.tex              # final report — LaTeX source (~40 pages)
 |   +-- Final_Project_Report.pdf              # final report — compiled PDF
-|   +-- Presentation.tex                      # Beamer presentation source
+|   +-- Group8_Final_Presentation.pptx        # 26-slide Canva-style presentation deck
+|   +-- Presentation.tex                      # legacy Beamer presentation source
 |   +-- proposal_final.tex                    # LaTeX source for proposal
 |   +-- Group8_CS3012_ProjectProposal_*.pdf   # submitted project proposal
 |   +-- preprocessing_documentation.docx      # full preprocessing + feature engineering doc
@@ -304,6 +306,9 @@ ai-job-market-analytics/
 |       +-- Tableau_AI_Core_Vs_Data_Tech.png
 |       +-- Tableau_US_Vs_Rest_Of_World.png
 |       +-- Tableau_Salary_Band_Distribution.png
+|
++-- scripts/
+|   +-- build_presentation.py                 # python-pptx generator for the final deck
 |
 +-- recordings/
 |   +-- RECORDING_LINK.md                     # Loom walkthrough URL
@@ -386,7 +391,9 @@ python 05_feature_engineering.py    # output: data/processed/salaries_enhanced.c
 | Tableau Dashboard PDF Export | Done | `tableau/Dashboard.pdf` |
 | Per-sheet + master Tableau PNGs (11 images) | Done | `docs/figures/` |
 | Final Project Report (LaTeX + 40-page PDF) | Done | `docs/Final_Project_Report.{tex,pdf}` |
-| Beamer Presentation source | Done | `docs/Presentation.tex` |
+| Final Presentation (26-slide PPTX, Canva-style) | Done | `docs/Group8_Final_Presentation.pptx` |
+| Presentation build script (python-pptx) | Done | `scripts/build_presentation.py` |
+| Beamer Presentation source (legacy) | Done | `docs/Presentation.tex` |
 | Video Walkthrough (Loom) | Done | `recordings/` |
 
 ---
@@ -400,6 +407,51 @@ The final 40-page report (`docs/Final_Project_Report.pdf`) is organised into nin
 3. **How did Tableau help in your analysis?** — Chapter 7 enumerates eight ways Tableau elevated the analysis, from cross-filter actions and calculated fields through geographic intelligence and reproducibility via the committed `.twb` workbook.
 
 The report also includes the unified master dashboard plus all ten Tableau worksheet renders, the full 20-figure EDA, the implementation details (palette, layout, calc fields), and the complete preprocessing source code in the appendix.
+
+---
+
+## Final Presentation
+
+The Canva-style 26-slide deck (`docs/Group8_Final_Presentation.pptx`) is generated programmatically from `scripts/build_presentation.py`. It is 16:9 widescreen, ~2.2 MB, uses the same forest emerald palette as the dashboard, and embeds 21 chart images alongside 881 text frames. A fade transition is applied to every slide.
+
+### Deck structure
+
+| # | Slide | Purpose |
+|---|---|---|
+| 01 | Title | Forest hero with course/group banner |
+| 02 | Agenda | 10 numbered cards covering every section |
+| 03 | Group & Work Division | 3 contributor cards with role + 4 contributions each |
+| 04 | Project Overview | Narrative + 4 objectives + 6 KPI tiles |
+| 05 | 5 Guiding Questions | The questions the dashboard answers |
+| 06 | About the Dataset | Field groups + 10-row properties table |
+| 07 | Why It's Real | 4 verification screenshots + 6 authenticity bullets |
+| 08 | Preprocessing Pipeline | 5 stages with arrow flow + row counts |
+| 09 | Stages 1 & 2 | Explore + Clean — purpose, technique, why |
+| 10 | Stage 3 | Title Grouping — 7 example mappings |
+| 11 | Stages 4 & 5 | Summarize + Engineer 12 columns |
+| 12 | EDA Overview | 6 matplotlib figure thumbnails |
+| 13 | Tableau Master Dashboard | Full dashboard image with annotations |
+| 14 | Section 1 | Salary Trend + Salary By Role |
+| 15 | Section 2 | Work Mode + Experience + Global Map |
+| 16 | Section 3 | Region + Size + AI Core + US/RoW |
+| 17 | Section 4 | Salary Band Distribution + 6 band stats |
+| 18 | Story Our Dashboard Tells | 4-act narrative |
+| 19–20 | Key Insights | 8 numbered insight cards |
+| 21–22 | How Tableau Helped | 8 reasons + summary callout |
+| 23 | Design System | 9 color swatches with hex + role |
+| 24 | Tech Stack | 6 deliverable categories |
+| 25 | Conclusion | 4 takeaway cards + recap |
+| 26 | Q & A / Thank You | Closer with full attribution |
+
+### Rebuilding the deck
+
+```bash
+pip install python-pptx
+python scripts/build_presentation.py
+# output: docs/Group8_Final_Presentation.pptx
+```
+
+The script is idempotent — change copy, colours, or layout in the script and re-run to regenerate.
 
 ---
 
