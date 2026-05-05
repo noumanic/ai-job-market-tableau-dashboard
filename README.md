@@ -1,10 +1,10 @@
 # AI Job Market Intelligence
-### Salaries, Roles & Global Hiring Trends (2020–2025)
+### Salaries, Roles & Global Hiring Trends (2022–2025)
 
 > **CS3012 Fundamentals of Data Visualization** · Group 8 · FAST-NUCES Islamabad · Spring 2026
 > Submitted to Dr. Atif Mughees
 
-Interactive Tableau dashboard built on **147,348 real salary submissions** from aijobs.net and foorilla.com, visualizing AI/ML/Data Science compensation trends, the remote work collapse (53% in 2022 to 20% in 2025), salary progression across career levels, and global hiring patterns across 87 countries from 2022 to 2025.
+Interactive Tableau master dashboard built on **147,348 real salary submissions** from aijobs.net and foorilla.com, visualizing AI/ML/Data Science compensation trends, the remote-work collapse (53% in 2022 to 20% in 2025), salary progression across career levels, regional and company-size disparities, and global hiring patterns across 87 countries. The dashboard composes **10 coordinated worksheets**, **5 KPI tiles**, and **4 insight callouts** onto a single 1200 × 1500 px canvas with click-to-filter cross-actions and a unified forest-emerald colour palette.
 
 ---
 
@@ -12,8 +12,11 @@ Interactive Tableau dashboard built on **147,348 real salary submissions** from 
 
 | Resource | URL |
 |----------|-----|
-| Tableau Public Dashboard | *(link after publish — Week 7)* |
+| Tableau Public Dashboard | *(link after publish)* |
 | Project Repository | https://github.com/noumanic/ai-job-market-analytics |
+| Final Project Report (PDF) | `docs/Final_Project_Report.pdf` (40 pages) |
+| Tableau Workbook | `tableau/Dashboard.twb` |
+| Tableau PDF Export | `tableau/Dashboard.pdf` |
 | Dataset — GitHub (source) | https://github.com/foorilla/ai-jobs-net-salaries |
 | Dataset — Kaggle (official aijobs account) | https://www.kaggle.com/datasets/aijobs/global-salaries-in-ai-ml-data-science |
 | Live Job Platform | https://aijobs.net |
@@ -174,74 +177,136 @@ Full documentation with Python code, worked examples, and output tables:
 
 ## Dashboard
 
-### Sheets
+The deliverable is a single interactive Tableau master dashboard at **1200 × 1500 px** containing **10 coordinated worksheets**, **5 KPI tiles**, **4 amber insight callouts**, a global Year filter, and a click-to-filter action that lets the Global Map drive every other panel.
 
-| Sheet | Chart Type | Key Columns Used |
-|-------|-----------|-----------------|
-| 1 — Salary Trend | Dual-Axis Line + Bar | `work_year`, `salary_in_usd` (avg + median + count) |
-| 2 — Salary by Role | Horizontal Bar + Parameter | `title_group`, `salary_in_usd` |
-| 3 — Work Mode Split | Donut | `work_mode` |
-| 4 — Global Hiring Map | Choropleth | `company_location`, `salary_in_usd` |
-| 5 — Salary vs Experience | Bar + Line Overlay | `exp_label`, `exp_order`, `salary_in_usd` |
-| 6 — KPI Cards | Text Tiles | Multiple aggregated measures |
-| 7 — Remote Work Trend | 100% Stacked Bar (Bonus) | `work_year`, `work_mode` |
+### Worksheets (10)
 
-### Bonus Features
+| # | Sheet | Chart Type | Key Columns Used |
+|---|-------|-----------|-----------------|
+| 1 | Salary Trend | Dual-pane Line + Bar | `work_year`, `salary_in_usd` (avg + median + count) |
+| 2 | Salary By Role | Horizontal Bar | `title_group`, `salary_in_usd` |
+| 3 | Work Mode | Donut | `work_mode` |
+| 4 | Global Map | Choropleth | `company_location`, `salary_in_usd` |
+| 5 | Salary Vs Experience | Vertical Bar | `exp_label`, `exp_order`, `salary_in_usd` |
+| 6 | Salary By Region | Horizontal Bar | `region`, `salary_in_usd` |
+| 7 | Salary By Company Size | Vertical Bar | `size_label`, `salary_in_usd` |
+| 8 | AI Core Vs Data Tech | Vertical Bar | `is_ai_core`, `salary_in_usd` |
+| 9 | US Vs Rest Of World | Vertical Bar | `is_us`, `salary_in_usd` |
+| 10 | Salary Band Distribution | Histogram | `salary_band`, count |
+
+### KPI Strip (5 tiles)
+
+| Tile | Value | Accent Color |
+|------|-------|-------------|
+| Median Salary | \$147,000 | Forest `#1B4332` |
+| Mean Salary | \$156,237 | Jade `#40916C` |
+| Total Records | 147,348 | Sage `#52B788` |
+| Remote Workers | 20.8% | Honey `#D8973C` |
+| Exec vs Entry Multiple | 1.91× | Rust `#BC4749` |
+
+### Dashboard Layout
+
+Top-to-bottom narrative grid:
+
+1. Title bar (forest green) — *AI JOB MARKET INTELLIGENCE*
+2. Subtitle bar with Year-filter dropdown
+3. KPI strip (5 tiles)
+4. **Section 1** — Salary Trends & Role Compensation (Sheets 1, 2)
+5. **Section 2** — Work Mode · Experience · Global Hiring (Sheets 3, 5, 4)
+6. **Section 3** — Regional · Company Size · Role Family · Market Concentration (Sheets 6, 7, 8, 9)
+7. **Section 4** — Salary Distribution Across Pay Bands (Sheet 10, full width)
+8. 2 × 2 grid of insight callouts (amber-bordered)
+9. Footer (forest green) — group, course, source attribution
+
+### Features
 
 | Feature | Implementation |
 |---------|---------------|
-| Dual-axis chart | Submission count as bar on secondary axis, avg salary as line on primary axis |
-| Global filters | Year, Experience Level, Company Size, Employment Type applied to all sheets |
-| Highlight actions | Click any mark to highlight related records across all other sheets |
-| Parameter toggle | Top 5, Top 10, or All 15 roles on the salary bar chart |
-| 5 story annotations | Key callouts placed on Sheets 1, 2, 3, 4, and 5 |
+| Dual-pane Salary Trend | Average line in upper pane, median + submission-volume bars in lower pane |
+| Click-to-filter action | Click any country on the map → every other panel re-scopes |
+| Global Year filter | Multi-value dropdown applied to every worksheet |
+| Custom shelf sorts | `salary_band` and `title_group` sorted by salary, not alphabetical |
+| 4 insight callouts | Amber-bordered text boxes summarising key findings |
+| Color-coded KPI tiles | Each tile uses a distinct accent colour matching its dashboard role |
+
+### Color Palette — Forest Emerald
+
+| Hex | Role | Where used |
+|-----|------|-----------|
+| `#1B4332` | Forest (primary) | Title bar, footer, KPI #1 |
+| `#2D6A4F` | Emerald | Subtitle, all panel borders (2px) |
+| `#40916C` | Jade | KPI #2 (Mean) |
+| `#52B788` | Sage | KPI #3 (Records) |
+| `#D8973C` | Honey | KPI #4 (Remote), insight border |
+| `#BC4749` | Rust | KPI #5 (EX/EN) |
+| `#FAF8F0` | Cream parchment | KPI tile + chart backgrounds |
+| `#E8F1ED` | Mint mist | Section header bands |
+| `#FFF4E5` | Warm peach | Insight callout backgrounds |
 
 ### Canvas
 
-1200 x 900 px fixed. Primary color: navy #003875. Accent: sky blue #378ADD.
-
-See `tableau/TABLEAU_NOTES.md` for all calculated fields, parameters, filter action setup, and step-by-step build instructions for every sheet.
+**1200 × 1500 px** fixed. The workbook is `tableau/Dashboard.twb`; a static export is `tableau/Dashboard.pdf`. See `tableau/TABLEAU_NOTES.md` for calculated fields, parameter and filter-action setup, and `tableau/DASHBOARD_BUILD_PLAN.md` for the step-by-step build guide.
 
 ---
 
 ## Repository Structure
 
 ```
-ai-job-market-tableau-dashboard/
+ai-job-market-analytics/
 |
 +-- data/
 |   +-- raw/
-|   |   +-- salaries.csv                     # original download — do not modify
-|   |   +-- DATA_SOURCE.md                   # all source URLs and column reference
+|   |   +-- salaries.csv                      # original download — do not modify
+|   |   +-- DATA_SOURCE.md                    # all source URLs and column reference
 |   |
 |   +-- processed/
 |       +-- salaries_clean_final.csv          # 147,348 rows x 15 cols — cleaned + labels
-|       +-- salaries_enhanced.csv             # 147,348 rows x 27 cols — final Tableau source
+|       +-- salaries_enhanced.csv             # 147,348 rows x 27 cols — Tableau source
 |
 +-- preprocessing/
 |   +-- 01_explore.py                         # EDA: shape, nulls, distributions, skewness
 |   +-- 02_clean.py                           # FT filter + year filter + outlier removal
 |   +-- 03_title_grouping.py                  # 406 raw titles mapped to 15 categories
-|   +-- 04_summary_stats.py                   # all KPI numbers for dashboard and proposal
+|   +-- 04_summary_stats.py                   # KPI metrics for dashboard and proposal
 |   +-- 05_feature_engineering.py             # 12 derived columns via 4 techniques
 |   +-- requirements.txt                      # pandas, numpy, scipy
 |
++-- notebooks/
+|   +-- AI_Job_Market_EDA.ipynb               # full EDA producing 20 figures + 10 summary CSVs
+|   +-- figures/                              # 20 PNG figures (matplotlib/seaborn)
+|   +-- outputs/                              # 10 summary_*.csv tables driving the report KPIs
+|   +-- requirements.txt
+|
 +-- tableau/
-|   +-- ai_job_market_dashboard.twbx          # packaged workbook — added Week 5
-|   +-- TABLEAU_NOTES.md                      # calculated fields, parameters, actions
+|   +-- Dashboard.twb                         # Tableau XML workbook — 10 worksheets, 1200x1500
+|   +-- Dashboard.pdf                         # static export of the master dashboard + sheets
+|   +-- DASHBOARD_BUILD_PLAN.md               # step-by-step build guide for every sheet
+|   +-- TABLEAU_NOTES.md                      # calculated fields, parameters, filter actions
 |
 +-- docs/
-|   +-- Group8_CS3012_ProjectProposal_
-|   |   AI_Job_Market_Intelligence_
-|   |   Spring2026.pdf                        # submitted project proposal
+|   +-- Final_Project_Report.tex              # final report — LaTeX source (~50 pages)
+|   +-- Final_Project_Report.pdf              # final report — compiled PDF
+|   +-- Presentation.tex                      # Beamer presentation source
 |   +-- proposal_final.tex                    # LaTeX source for proposal
+|   +-- Group8_CS3012_ProjectProposal_*.pdf   # submitted project proposal
 |   +-- preprocessing_documentation.docx      # full preprocessing + feature engineering doc
 |   +-- preprocessing_documentation.pdf       # PDF version of above
-|   +-- dashboard_screenshot.png              # added Week 7
-|   +-- written_summary.pdf                   # added Week 7
+|   +-- figures/
+|       +-- 01_salary_distribution.png ...    # 20 EDA figure PNGs (mirrors notebooks/figures)
+|       +-- Tableau_Master_Dashboard.png      # full master dashboard render
+|       +-- Tableau_Salary_Trend.png          # per-sheet renders cropped from the master
+|       +-- Tableau_Salary_By_Role.png
+|       +-- Tableau_Work_Mode.png
+|       +-- Tableau_Global_Map.png
+|       +-- Tableau_Salary_Vs_Experience.png
+|       +-- Tableau_Salary_By_Region.png
+|       +-- Tableau_Salary_By_Company_Size.png
+|       +-- Tableau_AI_Core_Vs_Data_Tech.png
+|       +-- Tableau_US_Vs_Rest_Of_World.png
+|       +-- Tableau_Salary_Band_Distribution.png
 |
 +-- recordings/
-|   +-- RECORDING_LINK.md                     # Loom walkthrough URL — added Week 7
+|   +-- RECORDING_LINK.md                     # Loom walkthrough URL
 |
 +-- assets/
 |   +-- pic1_foorilla_hiring.png              # platform source verification screenshot
@@ -309,20 +374,32 @@ python 05_feature_engineering.py    # output: data/processed/salaries_enhanced.c
 
 | Deliverable | Status | Location |
 |-------------|--------|----------|
-| Project Proposal (PDF) | Done | `docs/` |
-| Project Proposal (LaTeX source) | Done | `docs/` |
+| Project Proposal (PDF + LaTeX) | Done | `docs/` |
 | Preprocessing Documentation (Word + PDF) | Done | `docs/` |
-| Raw Dataset | Done | `data/raw/` |
-| Clean Dataset (15 cols) | Done | `data/processed/` |
-| Enhanced Dataset (27 cols) | Done | `data/processed/` |
+| Raw Dataset (151,445 rows) | Done | `data/raw/` |
+| Clean Dataset (147,348 × 15 cols) | Done | `data/processed/` |
+| Enhanced Dataset (147,348 × 27 cols) | Done | `data/processed/` |
 | Preprocessing Scripts (5 scripts) | Done | `preprocessing/` |
-| Tableau Notes and Calculated Fields | Done | `tableau/` |
-| Tableau Dashboard (.twbx) | Week 5 | `tableau/` |
-| Dashboard Screenshot | Week 7 | `docs/` |
-| Written Summary Report | Week 7 | `docs/` |
-| Video Walkthrough (Loom) | Week 7 | `recordings/` |
+| EDA Notebook + 20 figures + 10 summary CSVs | Done | `notebooks/` |
+| Tableau Notes + Build Plan | Done | `tableau/` |
+| Tableau Workbook (`Dashboard.twb`) — 10 sheets, 1200×1500 | Done | `tableau/` |
+| Tableau Dashboard PDF Export | Done | `tableau/Dashboard.pdf` |
+| Per-sheet + master Tableau PNGs (11 images) | Done | `docs/figures/` |
+| Final Project Report (LaTeX + 40-page PDF) | Done | `docs/Final_Project_Report.{tex,pdf}` |
+| Beamer Presentation source | Done | `docs/Presentation.tex` |
+| Video Walkthrough (Loom) | Done | `recordings/` |
 
 ---
+
+## Final Report
+
+The final 40-page report (`docs/Final_Project_Report.pdf`) is organised into nine chapters and explicitly answers the three core questions of the assignment:
+
+1. **What was the dataset about?** — Chapter 2 dedicates a section to the dataset's origin, properties, and authenticity markers.
+2. **What insights did you find?** — Chapter 6 lists eight numbered insight callouts covering role pay, career progression, the remote-work collapse, US dominance, regional disparity, the AI-core premium, company-size effect, and market maturation.
+3. **How did Tableau help in your analysis?** — Chapter 7 enumerates eight ways Tableau elevated the analysis, from cross-filter actions and calculated fields through geographic intelligence and reproducibility via the committed `.twb` workbook.
+
+The report also includes the unified master dashboard plus all ten Tableau worksheet renders, the full 20-figure EDA, the implementation details (palette, layout, calc fields), and the complete preprocessing source code in the appendix.
 
 ---
 
