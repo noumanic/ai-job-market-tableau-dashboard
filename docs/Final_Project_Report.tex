@@ -63,7 +63,7 @@
   {\normalfont\bfseries\color{navy}}
   {\filleft\Large\chaptertitlename\ \thechapter}
   {1ex}
-  {\titlerule\vspace{1ex}\filleft\Huge}
+  {\titrule\vspace{1ex}\filleft\Huge}
 
 \hypersetup{
     colorlinks=true,
@@ -114,7 +114,7 @@
 \pagenumbering{roman}
 
 \chapter*{Abstract}
-This report provides an exhaustive analysis and visualization of the global Artificial Intelligence (AI) and Machine Learning (ML) job market from 2022 to 2025. Leveraging a real-world crowdsourced dataset of 147,348 cleaned records, the project employs a rigorous Python-based preprocessing pipeline to engineer 12 new analytical dimensions. We present 26 distinct visualizations—including 20 exploratory figures and 6 final Tableau dashboard screenshots—that explore salary distributions, the "remote work collapse," geographic hiring patterns, and compensation growth. The final deliverable is an interactive Tableau dashboard designed for executive-level decision-making, providing a unified view of the industry's most critical trends.
+This report provides an exhaustive analysis and visualization of the global Artificial Intelligence (AI) and Machine Learning (ML) job market from 2022 to 2025. Leveraging a real-world crowdsourced dataset of 147,348 cleaned records, the project employs a rigorous Python-based preprocessing pipeline to engineer 12 new analytical dimensions. We present 30 distinct visualizations—including 20 exploratory figures, 6 final Tableau dashboard screenshots, and 4 platform verification assets—that explore salary distributions, the "remote work collapse," geographic hiring patterns, and compensation growth. The final deliverable is an interactive Tableau dashboard designed for executive-level decision-making, providing a unified view of the industry's most critical trends.
 
 \tableofcontents
 \listoffigures
@@ -468,32 +468,111 @@ The project successfully maps the current state of the AI job market. The data c
 \section{01\_explore.py}
 \begin{lstlisting}[language=Python]
 import pandas as pd
+import numpy as np
+
 RAW_PATH = "../data/raw/salaries.csv"
 df = pd.read_csv(RAW_PATH)
+
+print("=" * 60)
+print("SHAPE & COLUMNS")
+print("=" * 60)
 print(f"Rows: {len(df):,}")
-print(df["salary_in_usd"].describe())
+print(f"Columns: {df.shape[1]}")
+print(f"\nColumn names: {df.columns.tolist()}")
+
+print("\n" + "=" * 60)
+print("MISSING VALUES")
+print("=" * 60)
+print(df.isnull().sum())
+
+print("\n" + "=" * 60)
+print("SALARY DISTRIBUTION (salary_in_usd)")
+print("=" * 60)
+print(df["salary_in_usd"].describe().round(0))
+print(f"Skewness : {df['salary_in_usd'].skew():.3f}")
 \end{lstlisting}
 
 \section{02\_clean.py}
 \begin{lstlisting}[language=Python]
 import pandas as pd
-df = pd.read_csv("../data/raw/salaries.csv")
-df = df[df["employment_type"] == "FT"]
-df = df[df["work_year"] >= 2022]
-q01, q99 = df["salary_in_usd"].quantile([0.01, 0.99])
-df = df[(df["salary_in_usd"] >= lower) & (df["salary_in_usd"] <= upper)]
-df.to_csv("../data/processed/salaries_clean.csv", index=False)
+import numpy as np
+
+RAW_PATH  = "../data/raw/salaries.csv"
+OUT_PATH  = "../data/processed/salaries_clean.csv"
+
+df = pd.read_csv(RAW_PATH)
+
+# Step 1: Full-Time only
+df_ft = df[df["employment_type"] == "FT"].copy()
+
+# Step 2: 2022-2025 only
+df_yr = df_ft[df_ft["work_year"] >= 2022].copy()
+
+# Step 3: Outlier removal (1st-99th percentile)
+q01 = df_yr["salary_in_usd"].quantile(0.01)
+q99 = df_yr["salary_in_usd"].quantile(0.99)
+df_clean = df_yr[
+    (df_yr["salary_in_usd"] >= q01) &
+    (df_yr["salary_in_usd"] <= q99)
+].copy()
+
+df_clean.to_csv(OUT_PATH, index=False)
 \end{lstlisting}
 
 \section{03\_title\_grouping.py}
 \begin{lstlisting}[language=Python]
+import pandas as pd
+
 def group_title(title: str) -> str:
     t = title.lower()
-    if "scientist" in t: return "Data Scientist"
-    if "machine learning" in t or "ml" in t: return "ML Engineer / MLOps"
-    if "analyst" in t: return "Data Analyst"
-    return "Other"
+    if any(x in t for x in ["data scientist", "data science", "applied scientist"]):
+        return "Data Scientist"
+    elif any(x in t for x in ["data engineer", "data engineering", "etl"]):
+        return "Data Engineer"
+    elif any(x in t for x in ["machine learning engineer", "ml engineer", "mlops"]):
+        return "ML Engineer / MLOps"
+    elif any(x in t for x in ["data analyst", "bi analyst", "reporting analyst"]):
+        return "Data Analyst"
+    elif any(x in t for x in ["ai engineer", "deep learning", "nlp engineer"]):
+        return "AI / ML Researcher"
+    else:
+        return "Other"
+
+df = pd.read_csv("../data/processed/salaries_clean.csv")
 df["title_group"] = df["job_title"].apply(group_title)
+df["work_mode"]  = df["remote_ratio"].map({0: "On-site", 50: "Hybrid", 100: "Remote"})
+df.to_csv("../data/processed/salaries_clean_final.csv", index=False)
+\end{lstlisting}
+
+\section{05\_feature\_engineering.py}
+\begin{lstlisting}[language=Python]
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("../data/processed/salaries_clean_final.csv")
+
+# 1. SALARY BAND
+bins   = [0, 60_000, 100_000, 150_000, 200_000, 260_000, 385_001]
+labels = ["<$60K", "$60K-$100K", "$100K-$150K", "$150K-$200K", "$200K-$260K", "$260K+"]
+df["salary_band"] = pd.cut(df["salary_in_usd"], bins=bins, labels=labels)
+
+# 2. SALARY QUARTILE
+df["salary_quartile"] = pd.qcut(
+    df["salary_in_usd"], q=4,
+    labels=["Q1 - Bottom 25%", "Q2 - 25-50%", "Q3 - 50-75%", "Q4 - Top 25%"]
+)
+
+# 3. REGION
+region_map = {"US": "North America", "CA": "North America", "GB": "Europe", ...}
+df["region"] = df["company_location"].map(region_map).fillna("Other")
+
+# 4. SALARY vs ROLE AVERAGE
+role_avg = df.groupby("title_group")["salary_in_usd"].mean()
+df["role_avg_salary"]        = df["title_group"].map(role_avg).round(0)
+df["salary_vs_role_avg"]     = (df["salary_in_usd"] - df["role_avg_salary"]).round(0)
+df["salary_vs_role_avg_pct"] = (df["salary_vs_role_avg"] / df["role_avg_salary"] * 100).round(1)
+
+df.to_csv("../data/processed/salaries_enhanced.csv", index=False)
 \end{lstlisting}
 
 \end{document}
