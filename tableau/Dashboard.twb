@@ -933,11 +933,247 @@
       </table>
       <simple-id uuid='{2EB355B4-A564-4423-B9F4-ED5078859496}' />
     </worksheet>
+    <worksheet name='Salary By Region'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='salaries_enhanced' name='federated.05inboi0wzrr0v142b3wi0dmgvdt' />
+          </datasources>
+          <datasource-dependencies datasource='federated.05inboi0wzrr0v142b3wi0dmgvdt'>
+            <column caption='Avg Salary USD' datatype='integer' name='[Calculation_2517673566556160]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[salary_in_usd]' />
+            </column>
+            <column-instance column='[Calculation_2517673566556160]' derivation='Avg' name='[avg:Calculation_2517673566556160:qk]' pivot='key' type='quantitative' />
+            <column caption='Company Location' datatype='string' name='[company_location]' role='dimension' semantic-role='[Country].[Name]' type='nominal' />
+            <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+            <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[work_year]' derivation='None' name='[none:work_year:ok]' pivot='key' type='ordinal' />
+            <column caption='​AVG([Salary In Usd])' datatype='integer' name='[salary_in_usd]' role='measure' type='quantitative' />
+            <column caption='Work Year' datatype='integer' name='[work_year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]'>
+            <groupfilter function='level-members' level='[company_location]' user:ui-action-filter='[Action1_76C441F86D584A7593F3C42763495223]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:region:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]</column>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:region:nk]</rows>
+        <cols>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]</cols>
+      </table>
+      <simple-id uuid='{A1B2C3D4-1111-4111-8111-A0B1C0D1E0F1}' />
+    </worksheet>
+    <worksheet name='Salary By Company Size'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='salaries_enhanced' name='federated.05inboi0wzrr0v142b3wi0dmgvdt' />
+          </datasources>
+          <datasource-dependencies datasource='federated.05inboi0wzrr0v142b3wi0dmgvdt'>
+            <column caption='Avg Salary USD' datatype='integer' name='[Calculation_2517673566556160]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[salary_in_usd]' />
+            </column>
+            <column-instance column='[Calculation_2517673566556160]' derivation='Avg' name='[avg:Calculation_2517673566556160:qk]' pivot='key' type='quantitative' />
+            <column caption='Company Location' datatype='string' name='[company_location]' role='dimension' semantic-role='[Country].[Name]' type='nominal' />
+            <column caption='Size Label' datatype='string' name='[size_label]' role='dimension' type='nominal' />
+            <column-instance column='[size_label]' derivation='None' name='[none:size_label:nk]' pivot='key' type='nominal' />
+            <column-instance column='[work_year]' derivation='None' name='[none:work_year:ok]' pivot='key' type='ordinal' />
+            <column caption='​AVG([Salary In Usd])' datatype='integer' name='[salary_in_usd]' role='measure' type='quantitative' />
+            <column caption='Work Year' datatype='integer' name='[work_year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]'>
+            <groupfilter function='level-members' level='[company_location]' user:ui-action-filter='[Action1_76C441F86D584A7593F3C42763495223]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:size_label:nk]' direction='ASC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]</column>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:size_label:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]</rows>
+        <cols>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:size_label:nk]</cols>
+      </table>
+      <simple-id uuid='{A1B2C3D4-2222-4222-8222-A0B2C0D2E0F2}' />
+    </worksheet>
+    <worksheet name='AI Core Vs Data Tech'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='salaries_enhanced' name='federated.05inboi0wzrr0v142b3wi0dmgvdt' />
+          </datasources>
+          <datasource-dependencies datasource='federated.05inboi0wzrr0v142b3wi0dmgvdt'>
+            <column caption='Avg Salary USD' datatype='integer' name='[Calculation_2517673566556160]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[salary_in_usd]' />
+            </column>
+            <column-instance column='[Calculation_2517673566556160]' derivation='Avg' name='[avg:Calculation_2517673566556160:qk]' pivot='key' type='quantitative' />
+            <column caption='Company Location' datatype='string' name='[company_location]' role='dimension' semantic-role='[Country].[Name]' type='nominal' />
+            <column caption='Is Ai Core' datatype='string' name='[is_ai_core]' role='dimension' type='nominal' />
+            <column-instance column='[is_ai_core]' derivation='None' name='[none:is_ai_core:nk]' pivot='key' type='nominal' />
+            <column-instance column='[work_year]' derivation='None' name='[none:work_year:ok]' pivot='key' type='ordinal' />
+            <column caption='​AVG([Salary In Usd])' datatype='integer' name='[salary_in_usd]' role='measure' type='quantitative' />
+            <column caption='Work Year' datatype='integer' name='[work_year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]'>
+            <groupfilter function='level-members' level='[company_location]' user:ui-action-filter='[Action1_76C441F86D584A7593F3C42763495223]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:is_ai_core:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]</column>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:is_ai_core:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]</rows>
+        <cols>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:is_ai_core:nk]</cols>
+      </table>
+      <simple-id uuid='{A1B2C3D4-3333-4333-8333-A0B3C0D3E0F3}' />
+    </worksheet>
+    <worksheet name='US Vs Rest Of World'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='salaries_enhanced' name='federated.05inboi0wzrr0v142b3wi0dmgvdt' />
+          </datasources>
+          <datasource-dependencies datasource='federated.05inboi0wzrr0v142b3wi0dmgvdt'>
+            <column caption='Avg Salary USD' datatype='integer' name='[Calculation_2517673566556160]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[salary_in_usd]' />
+            </column>
+            <column-instance column='[Calculation_2517673566556160]' derivation='Avg' name='[avg:Calculation_2517673566556160:qk]' pivot='key' type='quantitative' />
+            <column caption='Company Location' datatype='string' name='[company_location]' role='dimension' semantic-role='[Country].[Name]' type='nominal' />
+            <column caption='Is Us' datatype='string' name='[is_us]' role='dimension' type='nominal' />
+            <column-instance column='[is_us]' derivation='None' name='[none:is_us:nk]' pivot='key' type='nominal' />
+            <column-instance column='[work_year]' derivation='None' name='[none:work_year:ok]' pivot='key' type='ordinal' />
+            <column caption='​AVG([Salary In Usd])' datatype='integer' name='[salary_in_usd]' role='measure' type='quantitative' />
+            <column caption='Work Year' datatype='integer' name='[work_year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]'>
+            <groupfilter function='level-members' level='[company_location]' user:ui-action-filter='[Action1_76C441F86D584A7593F3C42763495223]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:is_us:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]</column>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:is_us:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]</rows>
+        <cols>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:is_us:nk]</cols>
+      </table>
+      <simple-id uuid='{A1B2C3D4-4444-4444-8444-A0B4C0D4E0F4}' />
+    </worksheet>
+    <worksheet name='Salary Band Distribution'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='salaries_enhanced' name='federated.05inboi0wzrr0v142b3wi0dmgvdt' />
+          </datasources>
+          <datasource-dependencies datasource='federated.05inboi0wzrr0v142b3wi0dmgvdt'>
+            <column caption='Avg Salary USD' datatype='integer' name='[Calculation_2517673566556160]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[salary_in_usd]' />
+            </column>
+            <column-instance column='[Calculation_2517673566556160]' derivation='Avg' name='[avg:Calculation_2517673566556160:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2517673566556160]' derivation='Count' name='[cnt:Calculation_2517673566556160:qk]' pivot='key' type='quantitative' />
+            <column caption='Company Location' datatype='string' name='[company_location]' role='dimension' semantic-role='[Country].[Name]' type='nominal' />
+            <column caption='Salary Band' datatype='string' name='[salary_band]' role='dimension' type='nominal' />
+            <column-instance column='[salary_band]' derivation='None' name='[none:salary_band:nk]' pivot='key' type='nominal' />
+            <column-instance column='[work_year]' derivation='None' name='[none:work_year:ok]' pivot='key' type='ordinal' />
+            <column caption='​AVG([Salary In Usd])' datatype='integer' name='[salary_in_usd]' role='measure' type='quantitative' />
+            <column caption='Work Year' datatype='integer' name='[work_year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]'>
+            <groupfilter function='level-members' level='[company_location]' user:ui-action-filter='[Action1_76C441F86D584A7593F3C42763495223]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:salary_band:nk]' direction='ASC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[avg:Calculation_2517673566556160:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[Action (Company Location)]</column>
+            <column>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:salary_band:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[cnt:Calculation_2517673566556160:qk]</rows>
+        <cols>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:salary_band:nk]</cols>
+      </table>
+      <simple-id uuid='{A1B2C3D4-5555-4555-8555-A0B5C0D5E0F5}' />
+    </worksheet>
   </worksheets>
   <dashboards>
     <dashboard enable-sort-zone-taborder='true' name='AI Salary Analysis Dashboard'>
       <style />
-      <size maxheight='900' maxwidth='1200' minheight='900' minwidth='1200' sizing-mode='fixed' />
+      <size maxheight='1500' maxwidth='1200' minheight='1500' minwidth='1200' sizing-mode='fixed' />
       <datasources>
         <datasource caption='salaries_enhanced' name='federated.05inboi0wzrr0v142b3wi0dmgvdt' />
       </datasources>
@@ -947,7 +1183,7 @@
       </datasource-dependencies>
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone forceUpdate='true' h='8000' id='100' type-v2='text' w='100000' x='0' y='0'>
+          <zone forceUpdate='true' h='4500' id='100' type-v2='text' w='100000' x='0' y='0'>
             <formatted-text>
               <run bold='true' fontalignment='1' fontcolor='#FFFFFF' fontsize='24'>AI JOB MARKET INTELLIGENCE</run>
             </formatted-text>
@@ -959,7 +1195,7 @@
               <format attr='margin' value='0' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='3500' id='101' type-v2='text' w='80000' x='0' y='8000'>
+          <zone forceUpdate='true' h='2500' id='101' type-v2='text' w='80000' x='0' y='4500'>
             <formatted-text>
               <run fontalignment='1' fontcolor='#FFFFFF' fontsize='11'>Salaries · Roles · Global Hiring Trends   ·   2022–2025   ·   147,348 records   ·   87 countries   ·   15 role categories</run>
             </formatted-text>
@@ -971,7 +1207,7 @@
               <format attr='margin' value='0' />
             </zone-style>
           </zone>
-          <zone h='3500' id='19' mode='checkdropdown' name='Salary Trend' param='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]' type-v2='filter' values='database' w='20000' x='80000' y='8000'>
+          <zone h='2500' id='19' mode='checkdropdown' name='Salary Trend' param='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]' type-v2='filter' values='database' w='20000' x='80000' y='4500'>
             <zone-style>
               <format attr='background-color' value='#1B4D85' />
               <format attr='border-color' value='#1B4D85' />
@@ -980,9 +1216,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='8000' id='110' type-v2='text' w='19500' x='250' y='12000'>
+          <zone forceUpdate='true' h='4500' id='110' type-v2='text' w='19500' x='250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='28'>$147,000</run>
+              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='24'>$147,000</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -992,9 +1228,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='3500' id='111' type-v2='text' w='19500' x='250' y='20000'>
+          <zone forceUpdate='true' h='2000' id='111' type-v2='text' w='19500' x='250' y='11500'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='10'>MEDIAN SALARY</run>
+              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>MEDIAN SALARY</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -1004,9 +1240,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='8000' id='112' type-v2='text' w='19500' x='20250' y='12000'>
+          <zone forceUpdate='true' h='4500' id='112' type-v2='text' w='19500' x='20250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#378ADD' fontsize='28'>$156,237</run>
+              <run bold='true' fontalignment='1' fontcolor='#378ADD' fontsize='24'>$156,237</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -1016,9 +1252,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='3500' id='113' type-v2='text' w='19500' x='20250' y='20000'>
+          <zone forceUpdate='true' h='2000' id='113' type-v2='text' w='19500' x='20250' y='11500'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='10'>MEAN SALARY</run>
+              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>MEAN SALARY</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -1028,9 +1264,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='8000' id='114' type-v2='text' w='19500' x='40250' y='12000'>
+          <zone forceUpdate='true' h='4500' id='114' type-v2='text' w='19500' x='40250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#1D9E75' fontsize='28'>147,348</run>
+              <run bold='true' fontalignment='1' fontcolor='#1D9E75' fontsize='24'>147,348</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -1040,9 +1276,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='3500' id='115' type-v2='text' w='19500' x='40250' y='20000'>
+          <zone forceUpdate='true' h='2000' id='115' type-v2='text' w='19500' x='40250' y='11500'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='10'>TOTAL RECORDS</run>
+              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>TOTAL RECORDS</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -1052,9 +1288,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='8000' id='116' type-v2='text' w='19500' x='60250' y='12000'>
+          <zone forceUpdate='true' h='4500' id='116' type-v2='text' w='19500' x='60250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#EF9F27' fontsize='28'>20.8%</run>
+              <run bold='true' fontalignment='1' fontcolor='#EF9F27' fontsize='24'>20.8%</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -1064,9 +1300,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='3500' id='117' type-v2='text' w='19500' x='60250' y='20000'>
+          <zone forceUpdate='true' h='2000' id='117' type-v2='text' w='19500' x='60250' y='11500'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='10'>REMOTE WORKERS</run>
+              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>REMOTE WORKERS</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -1076,9 +1312,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='8000' id='118' type-v2='text' w='19500' x='80250' y='12000'>
+          <zone forceUpdate='true' h='4500' id='118' type-v2='text' w='19500' x='80250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#D85A30' fontsize='28'>1.91×</run>
+              <run bold='true' fontalignment='1' fontcolor='#D85A30' fontsize='24'>1.91×</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -1088,9 +1324,9 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='3500' id='119' type-v2='text' w='19500' x='80250' y='20000'>
+          <zone forceUpdate='true' h='2000' id='119' type-v2='text' w='19500' x='80250' y='11500'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='10'>EXEC vs ENTRY MULTIPLE</run>
+              <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>EXEC vs ENTRY MULTIPLE</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#F5F7FA' />
@@ -1100,7 +1336,7 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='2500' id='130' type-v2='text' w='100000' x='0' y='23500'>
+          <zone forceUpdate='true' h='1500' id='130' type-v2='text' w='100000' x='0' y='13500'>
             <formatted-text>
               <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>SALARY TRENDS &amp; ROLE COMPENSATION</run>
             </formatted-text>
@@ -1112,7 +1348,7 @@
               <format attr='margin' value='0' />
             </zone-style>
           </zone>
-          <zone h='30500' id='12' name='Salary Trend' w='49500' x='250' y='26000'>
+          <zone h='17500' id='12' name='Salary Trend' w='49500' x='250' y='15000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
               <format attr='border-color' value='#D0D7E2' />
@@ -1121,7 +1357,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='30500' id='14' name='Salary By Role' w='49500' x='50250' y='26000'>
+          <zone h='17500' id='14' name='Salary By Role' w='49500' x='50250' y='15000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
               <format attr='border-color' value='#D0D7E2' />
@@ -1130,7 +1366,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='2500' id='131' type-v2='text' w='100000' x='0' y='56500'>
+          <zone forceUpdate='true' h='1500' id='131' type-v2='text' w='100000' x='0' y='32500'>
             <formatted-text>
               <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>WORK MODE   ·   EXPERIENCE LEVEL   ·   GLOBAL HIRING DISTRIBUTION</run>
             </formatted-text>
@@ -1142,7 +1378,7 @@
               <format attr='margin' value='0' />
             </zone-style>
           </zone>
-          <zone h='32000' id='16' name='Work Mode' w='24500' x='250' y='59000'>
+          <zone h='19500' id='16' name='Work Mode' w='24500' x='250' y='34000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
               <format attr='border-color' value='#D0D7E2' />
@@ -1151,7 +1387,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='32000' id='18' name='Salary Vs Experience' w='24500' x='25000' y='59000'>
+          <zone h='19500' id='18' name='Salary Vs Experience' w='24500' x='25000' y='34000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
               <format attr='border-color' value='#D0D7E2' />
@@ -1160,7 +1396,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='32000' id='8' name='Global Map' w='49500' x='50250' y='59000'>
+          <zone h='19500' id='8' name='Global Map' w='49500' x='50250' y='34000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
               <format attr='border-color' value='#D0D7E2' />
@@ -1169,10 +1405,79 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='4500' id='200' type-v2='text' w='49500' x='250' y='91500'>
+          <zone forceUpdate='true' h='1500' id='132' type-v2='text' w='100000' x='0' y='53500'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>REGIONAL ANALYSIS   ·   COMPANY SIZE   ·   ROLE FAMILY   ·   MARKET CONCENTRATION</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='background-color' value='#E8EEF5' />
+              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='0' />
+            </zone-style>
+          </zone>
+          <zone h='17500' id='400' name='Salary By Region' w='24500' x='250' y='55000'>
+            <zone-style>
+              <format attr='background-color' value='#FFFFFF' />
+              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='17500' id='401' name='Salary By Company Size' w='24500' x='25000' y='55000'>
+            <zone-style>
+              <format attr='background-color' value='#FFFFFF' />
+              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='17500' id='402' name='AI Core Vs Data Tech' w='24750' x='50000' y='55000'>
+            <zone-style>
+              <format attr='background-color' value='#FFFFFF' />
+              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='17500' id='403' name='US Vs Rest Of World' w='24750' x='75000' y='55000'>
+            <zone-style>
+              <format attr='background-color' value='#FFFFFF' />
+              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone forceUpdate='true' h='1500' id='133' type-v2='text' w='100000' x='0' y='72500'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>SALARY DISTRIBUTION ACROSS PAY BANDS</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='background-color' value='#E8EEF5' />
+              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='0' />
+            </zone-style>
+          </zone>
+          <zone h='15500' id='404' name='Salary Band Distribution' w='99500' x='250' y='74000'>
+            <zone-style>
+              <format attr='background-color' value='#FFFFFF' />
+              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone forceUpdate='true' h='2700' id='200' type-v2='text' w='49500' x='250' y='90000'>
             <formatted-text>
               <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>INSIGHT  ·  </run>
-              <run fontalignment='1' fontcolor='#333333' fontsize='10'>Median salary climbed 46% from $102K (2022) → $149K (2024). Submission volume grew 48× as the platform matured.</run>
+              <run fontalignment='1' fontcolor='#333333' fontsize='10'>Median climbed 46% from $102K (2022) → $149K (2024); volume grew 48× as the platform matured. ML Engineer / MLOps leads at $194K — 81% above Data Analyst.</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#FFF8E8' />
@@ -1182,10 +1487,10 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='4500' id='201' type-v2='text' w='49500' x='50250' y='91500'>
+          <zone forceUpdate='true' h='2700' id='201' type-v2='text' w='49500' x='50250' y='90000'>
             <formatted-text>
               <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>INSIGHT  ·  </run>
-              <run fontalignment='1' fontcolor='#333333' fontsize='10'>ML Engineer / MLOps leads at $194K — 81% above Data Analyst. Executives earn 1.91× Entry Level. US captures 90% of all submissions.</run>
+              <run fontalignment='1' fontcolor='#333333' fontsize='10'>North America commands a 94% premium over Latin America. US captures 90% of submissions at $161K avg vs $108K elsewhere. AI/ML Core pays 13% more than Data &amp; Tech.</run>
             </formatted-text>
             <zone-style>
               <format attr='background-color' value='#FFF8E8' />
@@ -1195,7 +1500,33 @@
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='4000' id='250' type-v2='text' w='100000' x='0' y='96000'>
+          <zone forceUpdate='true' h='2700' id='202' type-v2='text' w='49500' x='250' y='92700'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>INSIGHT  ·  </run>
+              <run fontalignment='1' fontcolor='#333333' fontsize='10'>Remote work collapsed from 53% (2022) to 20% (2025). Executives earn 1.91× Entry Level — $196K vs $103K. Mid-tier band $100K–$150K holds 31% of the market.</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='background-color' value='#FFF8E8' />
+              <format attr='border-color' value='#EF9F27' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='2' />
+            </zone-style>
+          </zone>
+          <zone forceUpdate='true' h='2700' id='203' type-v2='text' w='49500' x='50250' y='92700'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>INSIGHT  ·  </run>
+              <run fontalignment='1' fontcolor='#333333' fontsize='10'>Large companies pay highest overall. The $260K+ band holds 7% — concentrated in ML Engineering and Senior Software roles. Skewness of 0.68 confirms the long upper tail of pay.</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='background-color' value='#FFF8E8' />
+              <format attr='border-color' value='#EF9F27' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='1' />
+              <format attr='margin' value='2' />
+            </zone-style>
+          </zone>
+          <zone forceUpdate='true' h='4600' id='250' type-v2='text' w='100000' x='0' y='95400'>
             <formatted-text>
               <run fontalignment='1' fontcolor='#FFFFFF' fontsize='9'>FAST-NUCES Islamabad  ·  CS3012 Fundamentals of Data Visualization  ·  Spring 2026  ·  Group 8: Muhammad Nouman Hafeez (21i-0416), Muhammad Asim (21i-0852), Sara Jabeen (21i-0623)  ·  Source: aijobs.net (CC0 Public Domain)</run>
             </formatted-text>
@@ -1218,11 +1549,11 @@
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='2400' minheight='2400' sizing-mode='vscroll' />
+          <size maxheight='4200' minheight='4200' sizing-mode='vscroll' />
           <zones>
             <zone h='100000' id='27' type-v2='layout-basic' w='100000' x='0' y='0'>
               <zone h='98222' id='26' param='vert' type-v2='layout-flow' w='98666' x='667' y='889'>
-                <zone forceUpdate='true' h='6000' id='300' type-v2='text' w='98666' x='667' y='889'>
+                <zone forceUpdate='true' h='3500' id='300' type-v2='text' w='98666' x='667' y='889'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#FFFFFF' fontsize='18'>AI JOB MARKET INTELLIGENCE</run>
                   </formatted-text>
@@ -1235,7 +1566,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='5000' id='19' mode='checkdropdown' name='Salary Trend' param='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]' type-v2='filter' values='database' w='98666' x='667' y='6889'>
+                <zone h='3000' id='19' mode='checkdropdown' name='Salary Trend' param='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]' type-v2='filter' values='database' w='98666' x='667' y='4389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
                     <format attr='border-color' value='#D0D7E2' />
@@ -1245,7 +1576,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='17000' id='12' name='Salary Trend' w='98666' x='667' y='11889'>
+                <zone h='9000' id='12' name='Salary Trend' w='98666' x='667' y='7389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
                     <format attr='border-color' value='#D0D7E2' />
@@ -1255,7 +1586,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='17000' id='14' name='Salary By Role' w='98666' x='667' y='28889'>
+                <zone h='9000' id='14' name='Salary By Role' w='98666' x='667' y='16389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
                     <format attr='border-color' value='#D0D7E2' />
@@ -1265,7 +1596,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='17000' id='18' name='Salary Vs Experience' w='98666' x='667' y='45889'>
+                <zone h='9000' id='18' name='Salary Vs Experience' w='98666' x='667' y='25389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
                     <format attr='border-color' value='#D0D7E2' />
@@ -1275,7 +1606,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='17000' id='16' name='Work Mode' w='98666' x='667' y='62889'>
+                <zone h='9000' id='16' name='Work Mode' w='98666' x='667' y='34389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
                     <format attr='border-color' value='#D0D7E2' />
@@ -1285,7 +1616,57 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='17000' id='8' name='Global Map' w='98666' x='667' y='79889'>
+                <zone h='9000' id='8' name='Global Map' w='98666' x='667' y='43389'>
+                  <zone-style>
+                    <format attr='background-color' value='#FFFFFF' />
+                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='2' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9000' id='400' name='Salary By Region' w='98666' x='667' y='52389'>
+                  <zone-style>
+                    <format attr='background-color' value='#FFFFFF' />
+                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='2' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9000' id='401' name='Salary By Company Size' w='98666' x='667' y='61389'>
+                  <zone-style>
+                    <format attr='background-color' value='#FFFFFF' />
+                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='2' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9000' id='402' name='AI Core Vs Data Tech' w='98666' x='667' y='70389'>
+                  <zone-style>
+                    <format attr='background-color' value='#FFFFFF' />
+                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='2' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9000' id='403' name='US Vs Rest Of World' w='98666' x='667' y='79389'>
+                  <zone-style>
+                    <format attr='background-color' value='#FFFFFF' />
+                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='2' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='9000' id='404' name='Salary Band Distribution' w='98666' x='667' y='88389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
                     <format attr='border-color' value='#D0D7E2' />
@@ -1483,6 +1864,126 @@
       </viewpoint>
       <simple-id uuid='{2657D0CA-46EC-4C51-8C03-3D30762F5818}' />
     </window>
+    <window class='worksheet' name='Salary By Region'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint />
+      <simple-id uuid='{B1B2C3D4-1111-4111-8111-B0B1C0D1E0F1}' />
+    </window>
+    <window class='worksheet' name='Salary By Company Size'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint />
+      <simple-id uuid='{B1B2C3D4-2222-4222-8222-B0B2C0D2E0F2}' />
+    </window>
+    <window class='worksheet' name='AI Core Vs Data Tech'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint />
+      <simple-id uuid='{B1B2C3D4-3333-4333-8333-B0B3C0D3E0F3}' />
+    </window>
+    <window class='worksheet' name='US Vs Rest Of World'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint />
+      <simple-id uuid='{B1B2C3D4-4444-4444-8444-B0B4C0D4E0F4}' />
+    </window>
+    <window class='worksheet' name='Salary Band Distribution'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint />
+      <simple-id uuid='{B1B2C3D4-5555-4555-8555-B0B5C0D5E0F5}' />
+    </window>
     <window class='dashboard' maximized='true' name='AI Salary Analysis Dashboard'>
       <viewpoints>
         <viewpoint name='Global Map'>
@@ -1503,6 +2004,21 @@
               <field>[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_mode:nk]</field>
             </color-one-way>
           </highlight>
+        </viewpoint>
+        <viewpoint name='Salary By Region'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Salary By Company Size'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='AI Core Vs Data Tech'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='US Vs Rest Of World'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Salary Band Distribution'>
+          <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
       <active id='-1' />
