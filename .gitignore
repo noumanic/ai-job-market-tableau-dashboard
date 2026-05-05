@@ -12,7 +12,7 @@ Thumbs.db
 *.log
 
 # Tableau — always commit .twbx (packaged), never raw .twb
-*.twb
+
 !*.twbx
 
 # Large files — add to Git LFS or keep out
