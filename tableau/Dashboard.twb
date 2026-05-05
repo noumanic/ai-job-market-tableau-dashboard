@@ -1188,8 +1188,8 @@
               <run bold='true' fontalignment='1' fontcolor='#FFFFFF' fontsize='24'>AI JOB MARKET INTELLIGENCE</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#003875' />
-              <format attr='border-color' value='#003875' />
+              <format attr='background-color' value='#1B4332' />
+              <format attr='border-color' value='#1B4332' />
               <format attr='border-style' value='solid' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='0' />
@@ -1200,8 +1200,8 @@
               <run fontalignment='1' fontcolor='#FFFFFF' fontsize='11'>Salaries · Roles · Global Hiring Trends   ·   2022–2025   ·   147,348 records   ·   87 countries   ·   15 role categories</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#1B4D85' />
-              <format attr='border-color' value='#1B4D85' />
+              <format attr='background-color' value='#2D6A4F' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='0' />
@@ -1209,8 +1209,8 @@
           </zone>
           <zone h='2500' id='19' mode='checkdropdown' name='Salary Trend' param='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]' type-v2='filter' values='database' w='20000' x='80000' y='4500'>
             <zone-style>
-              <format attr='background-color' value='#1B4D85' />
-              <format attr='border-color' value='#1B4D85' />
+              <format attr='background-color' value='#2D6A4F' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='2' />
@@ -1218,13 +1218,13 @@
           </zone>
           <zone forceUpdate='true' h='4500' id='110' type-v2='text' w='19500' x='250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='24'>$147,000</run>
+              <run bold='true' fontalignment='1' fontcolor='#1B4332' fontsize='24'>$147,000</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#003875' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#1B4332' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
@@ -1233,22 +1233,22 @@
               <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>MEDIAN SALARY</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#003875' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#1B4332' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='4500' id='112' type-v2='text' w='19500' x='20250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#378ADD' fontsize='24'>$156,237</run>
+              <run bold='true' fontalignment='1' fontcolor='#40916C' fontsize='24'>$156,237</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#378ADD' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#40916C' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
@@ -1257,22 +1257,22 @@
               <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>MEAN SALARY</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#378ADD' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#40916C' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='4500' id='114' type-v2='text' w='19500' x='40250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#1D9E75' fontsize='24'>147,348</run>
+              <run bold='true' fontalignment='1' fontcolor='#52B788' fontsize='24'>147,348</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#1D9E75' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#52B788' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
@@ -1281,22 +1281,22 @@
               <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>TOTAL RECORDS</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#1D9E75' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#52B788' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='4500' id='116' type-v2='text' w='19500' x='60250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#EF9F27' fontsize='24'>20.8%</run>
+              <run bold='true' fontalignment='1' fontcolor='#D8973C' fontsize='24'>20.8%</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#EF9F27' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#D8973C' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
@@ -1305,22 +1305,22 @@
               <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>REMOTE WORKERS</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#EF9F27' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#D8973C' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='4500' id='118' type-v2='text' w='19500' x='80250' y='7000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#D85A30' fontsize='24'>1.91×</run>
+              <run bold='true' fontalignment='1' fontcolor='#BC4749' fontsize='24'>1.91×</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#D85A30' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#BC4749' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
@@ -1329,20 +1329,20 @@
               <run bold='true' fontalignment='1' fontcolor='#666666' fontsize='9'>EXEC vs ENTRY MULTIPLE</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#F5F7FA' />
-              <format attr='border-color' value='#D85A30' />
+              <format attr='background-color' value='#FAF8F0' />
+              <format attr='border-color' value='#BC4749' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='1500' id='130' type-v2='text' w='100000' x='0' y='13500'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>SALARY TRENDS &amp; ROLE COMPENSATION</run>
+              <run bold='true' fontalignment='1' fontcolor='#1B4332' fontsize='10'>SALARY TRENDS &amp; ROLE COMPENSATION</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#E8EEF5' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='background-color' value='#E8F1ED' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='0' />
@@ -1351,28 +1351,28 @@
           <zone h='17500' id='12' name='Salary Trend' w='49500' x='250' y='15000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone h='17500' id='14' name='Salary By Role' w='49500' x='50250' y='15000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='1500' id='131' type-v2='text' w='100000' x='0' y='32500'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>WORK MODE   ·   EXPERIENCE LEVEL   ·   GLOBAL HIRING DISTRIBUTION</run>
+              <run bold='true' fontalignment='1' fontcolor='#1B4332' fontsize='10'>WORK MODE   ·   EXPERIENCE LEVEL   ·   GLOBAL HIRING DISTRIBUTION</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#E8EEF5' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='background-color' value='#E8F1ED' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='0' />
@@ -1381,37 +1381,37 @@
           <zone h='19500' id='16' name='Work Mode' w='24500' x='250' y='34000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone h='19500' id='18' name='Salary Vs Experience' w='24500' x='25000' y='34000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone h='19500' id='8' name='Global Map' w='49500' x='50250' y='34000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='1500' id='132' type-v2='text' w='100000' x='0' y='53500'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>REGIONAL ANALYSIS   ·   COMPANY SIZE   ·   ROLE FAMILY   ·   MARKET CONCENTRATION</run>
+              <run bold='true' fontalignment='1' fontcolor='#1B4332' fontsize='10'>REGIONAL ANALYSIS   ·   COMPANY SIZE   ·   ROLE FAMILY   ·   MARKET CONCENTRATION</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#E8EEF5' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='background-color' value='#E8F1ED' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='0' />
@@ -1420,46 +1420,46 @@
           <zone h='17500' id='400' name='Salary By Region' w='24500' x='250' y='55000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone h='17500' id='401' name='Salary By Company Size' w='24500' x='25000' y='55000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone h='17500' id='402' name='AI Core Vs Data Tech' w='24750' x='50000' y='55000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone h='17500' id='403' name='US Vs Rest Of World' w='24750' x='75000' y='55000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='1500' id='133' type-v2='text' w='100000' x='0' y='72500'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>SALARY DISTRIBUTION ACROSS PAY BANDS</run>
+              <run bold='true' fontalignment='1' fontcolor='#1B4332' fontsize='10'>SALARY DISTRIBUTION ACROSS PAY BANDS</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#E8EEF5' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='background-color' value='#E8F1ED' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='0' />
@@ -1468,61 +1468,61 @@
           <zone h='15500' id='404' name='Salary Band Distribution' w='99500' x='250' y='74000'>
             <zone-style>
               <format attr='background-color' value='#FFFFFF' />
-              <format attr='border-color' value='#D0D7E2' />
+              <format attr='border-color' value='#2D6A4F' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='2700' id='200' type-v2='text' w='49500' x='250' y='90000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>INSIGHT  ·  </run>
+              <run bold='true' fontalignment='1' fontcolor='#1B4332' fontsize='10'>INSIGHT  ·  </run>
               <run fontalignment='1' fontcolor='#333333' fontsize='10'>Median climbed 46% from $102K (2022) → $149K (2024); volume grew 48× as the platform matured. ML Engineer / MLOps leads at $194K — 81% above Data Analyst.</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#FFF8E8' />
-              <format attr='border-color' value='#EF9F27' />
+              <format attr='background-color' value='#FFF4E5' />
+              <format attr='border-color' value='#D8973C' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='2700' id='201' type-v2='text' w='49500' x='50250' y='90000'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>INSIGHT  ·  </run>
+              <run bold='true' fontalignment='1' fontcolor='#1B4332' fontsize='10'>INSIGHT  ·  </run>
               <run fontalignment='1' fontcolor='#333333' fontsize='10'>North America commands a 94% premium over Latin America. US captures 90% of submissions at $161K avg vs $108K elsewhere. AI/ML Core pays 13% more than Data &amp; Tech.</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#FFF8E8' />
-              <format attr='border-color' value='#EF9F27' />
+              <format attr='background-color' value='#FFF4E5' />
+              <format attr='border-color' value='#D8973C' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='2700' id='202' type-v2='text' w='49500' x='250' y='92700'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>INSIGHT  ·  </run>
+              <run bold='true' fontalignment='1' fontcolor='#1B4332' fontsize='10'>INSIGHT  ·  </run>
               <run fontalignment='1' fontcolor='#333333' fontsize='10'>Remote work collapsed from 53% (2022) to 20% (2025). Executives earn 1.91× Entry Level — $196K vs $103K. Mid-tier band $100K–$150K holds 31% of the market.</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#FFF8E8' />
-              <format attr='border-color' value='#EF9F27' />
+              <format attr='background-color' value='#FFF4E5' />
+              <format attr='border-color' value='#D8973C' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
           <zone forceUpdate='true' h='2700' id='203' type-v2='text' w='49500' x='50250' y='92700'>
             <formatted-text>
-              <run bold='true' fontalignment='1' fontcolor='#003875' fontsize='10'>INSIGHT  ·  </run>
+              <run bold='true' fontalignment='1' fontcolor='#1B4332' fontsize='10'>INSIGHT  ·  </run>
               <run fontalignment='1' fontcolor='#333333' fontsize='10'>Large companies pay highest overall. The $260K+ band holds 7% — concentrated in ML Engineering and Senior Software roles. Skewness of 0.68 confirms the long upper tail of pay.</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#FFF8E8' />
-              <format attr='border-color' value='#EF9F27' />
+              <format attr='background-color' value='#FFF4E5' />
+              <format attr='border-color' value='#D8973C' />
               <format attr='border-style' value='solid' />
-              <format attr='border-width' value='1' />
+              <format attr='border-width' value='2' />
               <format attr='margin' value='2' />
             </zone-style>
           </zone>
@@ -1531,8 +1531,8 @@
               <run fontalignment='1' fontcolor='#FFFFFF' fontsize='9'>FAST-NUCES Islamabad  ·  CS3012 Fundamentals of Data Visualization  ·  Spring 2026  ·  Group 8: Muhammad Nouman Hafeez (21i-0416), Muhammad Asim (21i-0852), Sara Jabeen (21i-0623)  ·  Source: aijobs.net (CC0 Public Domain)</run>
             </formatted-text>
             <zone-style>
-              <format attr='background-color' value='#003875' />
-              <format attr='border-color' value='#003875' />
+              <format attr='background-color' value='#1B4332' />
+              <format attr='border-color' value='#1B4332' />
               <format attr='border-style' value='solid' />
               <format attr='border-width' value='0' />
               <format attr='margin' value='0' />
@@ -1558,8 +1558,8 @@
                     <run bold='true' fontalignment='1' fontcolor='#FFFFFF' fontsize='18'>AI JOB MARKET INTELLIGENCE</run>
                   </formatted-text>
                   <zone-style>
-                    <format attr='background-color' value='#003875' />
-                    <format attr='border-color' value='#003875' />
+                    <format attr='background-color' value='#1B4332' />
+                    <format attr='border-color' value='#1B4332' />
                     <format attr='border-style' value='solid' />
                     <format attr='border-width' value='0' />
                     <format attr='margin' value='0' />
@@ -1569,9 +1569,9 @@
                 <zone h='3000' id='19' mode='checkdropdown' name='Salary Trend' param='[federated.05inboi0wzrr0v142b3wi0dmgvdt].[none:work_year:ok]' type-v2='filter' values='database' w='98666' x='667' y='4389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1579,9 +1579,9 @@
                 <zone h='9000' id='12' name='Salary Trend' w='98666' x='667' y='7389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1589,9 +1589,9 @@
                 <zone h='9000' id='14' name='Salary By Role' w='98666' x='667' y='16389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1599,9 +1599,9 @@
                 <zone h='9000' id='18' name='Salary Vs Experience' w='98666' x='667' y='25389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1609,9 +1609,9 @@
                 <zone h='9000' id='16' name='Work Mode' w='98666' x='667' y='34389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1619,9 +1619,9 @@
                 <zone h='9000' id='8' name='Global Map' w='98666' x='667' y='43389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1629,9 +1629,9 @@
                 <zone h='9000' id='400' name='Salary By Region' w='98666' x='667' y='52389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1639,9 +1639,9 @@
                 <zone h='9000' id='401' name='Salary By Company Size' w='98666' x='667' y='61389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1649,9 +1649,9 @@
                 <zone h='9000' id='402' name='AI Core Vs Data Tech' w='98666' x='667' y='70389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1659,9 +1659,9 @@
                 <zone h='9000' id='403' name='US Vs Rest Of World' w='98666' x='667' y='79389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
@@ -1669,9 +1669,9 @@
                 <zone h='9000' id='404' name='Salary Band Distribution' w='98666' x='667' y='88389'>
                   <zone-style>
                     <format attr='background-color' value='#FFFFFF' />
-                    <format attr='border-color' value='#D0D7E2' />
+                    <format attr='border-color' value='#2D6A4F' />
                     <format attr='border-style' value='solid' />
-                    <format attr='border-width' value='1' />
+                    <format attr='border-width' value='2' />
                     <format attr='margin' value='2' />
                     <format attr='padding' value='0' />
                   </zone-style>
